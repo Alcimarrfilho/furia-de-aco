@@ -1,4 +1,4 @@
-extends CharacterBody2
+extends CharacterBody2D
 const SPEED = 300.0  
 const JUMP_VELOCITY = -500.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,9 +24,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Ataque
-	if Input.is_action_just_pressed("ui_select") and is_on_floor() and not attacking:
+	if Input.is_action_just_pressed("atacar") and is_on_floor() and not attacking:
 		attacking = true
 		attack_cooldown = 0.6
+		sprite.play("attack")
 	
 	if attacking:
 		if sprite.animation != "attack":

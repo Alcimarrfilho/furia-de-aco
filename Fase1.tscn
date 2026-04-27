@@ -1,21 +1,13 @@
 [gd_scene format=3 uid="uid://cncom2het2bo"]
 
-[ext_resource type="Script" uid="uid://chxmh1qms3orl" path="res://Cavaleiro.gd" id="1_56rjb"]
+[ext_resource type="Script" uid="uid://bk6cicr180smf" path="res://character_body_2d.gd" id="1_ud5y3"]
 [ext_resource type="Texture2D" uid="uid://0se6qj3sa1kk" path="res://Knight 2D Pixel Art/Sprites/with_outline/ATTACK 1.png" id="2_ud5y3"]
 [ext_resource type="Texture2D" uid="uid://docm1571smigc" path="res://Knight 2D Pixel Art/Sprites/with_outline/IDLE.png" id="3_5jc3a"]
 [ext_resource type="Texture2D" uid="uid://4tjh3wlju2ux" path="res://Knight 2D Pixel Art/Sprites/with_outline/JUMP.png" id="4_1wj8m"]
 [ext_resource type="Texture2D" uid="uid://dqiq0fw83m27" path="res://Knight 2D Pixel Art/Sprites/with_outline/RUN.png" id="5_82fsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
-size = Vector2(30, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ud5y3"]
-atlas = ExtResource("2_ud5y3")
-region = Rect2(0, 0, 96, 84)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5jc3a"]
-atlas = ExtResource("2_ud5y3")
-region = Rect2(96, 0, 96, 84)
+size = Vector2(31, 42.666668)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wj8m"]
 atlas = ExtResource("2_ud5y3")
@@ -116,15 +108,6 @@ region = Rect2(672, 0, 96, 84)
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyyah"]
 animations = [{
 "frames": [{
-"duration": 0.1,
-"texture": ExtResource("2_ud5y3")
-}, {
-"duration": 0.1,
-"texture": SubResource("AtlasTexture_ud5y3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5jc3a")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wj8m")
 }, {
@@ -138,13 +121,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_6h1au")
 }],
 "loop": false,
-"name": &"attack ",
+"name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.1,
-"texture": ExtResource("3_5jc3a")
-}, {
 "duration": 0.1,
 "texture": SubResource("AtlasTexture_spkfo")
 }, {
@@ -166,14 +146,11 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f28v8")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.1,
-"texture": ExtResource("4_1wj8m")
-}, {
 "duration": 0.1,
 "texture": SubResource("AtlasTexture_31ic2")
 }, {
@@ -194,9 +171,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.1,
-"texture": ExtResource("5_82fsy")
-}, {
 "duration": 0.1,
 "texture": SubResource("AtlasTexture_pf7a0")
 }, {
@@ -221,32 +195,59 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rb6wm")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
-size = Vector2(2000, 30)
+size = Vector2(1986, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud5y3"]
+size = Vector2(46, 386)
 
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1290052003]
-position = Vector2(0, -100)
-script = ExtResource("1_56rjb")
+position = Vector2(-387, 32)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_ud5y3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1207814232]
+visible = false
+position = Vector2(-327.33337, -66.66667)
 shape = SubResource("RectangleShape2D_coe7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1129986921]
+position = Vector2(-326.66666, -68)
 sprite_frames = SubResource("SpriteFrames_pyyah")
-animation = &"run"
+animation = &"attack"
 speed_scale = 1.5
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=811949544]
+position = Vector2(-337.3333, -70.66667)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=633372967]
 position = Vector2(0, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
+position = Vector2(2, 11.5)
 shape = SubResource("RectangleShape2D_3jppy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
+position = Vector2(-976, -160)
+shape = SubResource("RectangleShape2D_ud5y3")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D2" unique_id=1005059229]
+offset_left = -24.0
+offset_top = -202.0
+offset_right = 26.0
+offset_bottom = 146.0
+color = Color(0.54509807, 0.27058825, 0.07450981, 1)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1996756725]
+offset_left = -1000.0
+offset_top = -14.0
+offset_right = 1000.0
+offset_bottom = 40.0
+color = Color(0.54509807, 0.27058825, 0.07450981, 1)
