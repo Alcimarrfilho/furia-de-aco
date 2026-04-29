@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqiq0fw83m27" path="res://Knight 2D Pixel Art/Sprites/with_outline/RUN.png" id="5_82fsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
-size = Vector2(31, 42.666668)
+size = Vector2(39.99999, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wj8m"]
 atlas = ExtResource("2_ud5y3")
@@ -202,61 +202,45 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
-size = Vector2(1986, 43)
+size = Vector2(3266.25, 45.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud5y3"]
-size = Vector2(46, 386)
+size = Vector2(39, 461)
 
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
 [node name="FundoJornada" type="Sprite2D" parent="." unique_id=1433368953]
-position = Vector2(172.50012, -148)
-scale = Vector2(1.61048, 0.6964286)
+position = Vector2(612, 104.00002)
+scale = Vector2(2.0684185, 1.1190475)
 texture = ExtResource("1_5jc3a")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1290052003]
-position = Vector2(-387, 32)
+position = Vector2(-405, 28)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ud5y3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1207814232]
-visible = false
-position = Vector2(-327.33337, -66.66667)
+position = Vector2(-264.66675, 156.66667)
 shape = SubResource("RectangleShape2D_coe7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1129986921]
-position = Vector2(-326.66666, -68)
+position = Vector2(-262.6667, 157.33334)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_pyyah")
-animation = &"attack"
+animation = &"run"
 speed_scale = 1.5
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=811949544]
-position = Vector2(-337.3333, -70.66667)
+position = Vector2(74.666664, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=633372967]
 position = Vector2(0, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
-position = Vector2(2, 11.5)
+visible = false
+position = Vector2(613.125, 378)
 shape = SubResource("RectangleShape2D_3jppy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
-visible = false
-position = Vector2(-976, -160)
+position = Vector2(-1014, 139)
 shape = SubResource("RectangleShape2D_ud5y3")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D2" unique_id=1005059229]
-visible = false
-offset_left = -24.0
-offset_top = -202.0
-offset_right = 26.0
-offset_bottom = 146.0
-color = Color(0.54509807, 0.27058825, 0.07450981, 1)
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1996756725]
-visible = false
-offset_left = -1000.0
-offset_top = -14.0
-offset_right = 1000.0
-offset_bottom = 40.0
-color = Color(0.54509807, 0.27058825, 0.07450981, 1)
