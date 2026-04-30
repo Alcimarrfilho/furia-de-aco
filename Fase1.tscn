@@ -220,6 +220,7 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ud5y3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1207814232]
+visible = false
 position = Vector2(-264.66675, 156.66667)
 shape = SubResource("RectangleShape2D_coe7y")
 
@@ -242,5 +243,6 @@ position = Vector2(613.125, 378)
 shape = SubResource("RectangleShape2D_3jppy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
+visible = false
 position = Vector2(-1014, 139)
 shape = SubResource("RectangleShape2D_ud5y3")
