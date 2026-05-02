@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+Global="*uid://c23pmxjjrag1q"
+
 [dotnet]
 
 project/assembly_name="Furia de Aco"

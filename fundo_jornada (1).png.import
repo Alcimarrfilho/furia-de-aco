@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3adj2xc6l68k"
-path="res://.godot/imported/fundo_jornada.png-a5d3c7f76e6068cdd196375f88a0e0d0.ctex"
+uid="uid://w670eaq7w7di"
+path="res://.godot/imported/fundo_jornada (1).png-0615d19e3b91682fe81b15fccdd8653e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fundo_jornada.png"
-dest_files=["res://.godot/imported/fundo_jornada.png-a5d3c7f76e6068cdd196375f88a0e0d0.ctex"]
+source_file="res://fundo_jornada (1).png"
+dest_files=["res://.godot/imported/fundo_jornada (1).png-0615d19e3b91682fe81b15fccdd8653e.ctex"]
 
 [params]
 
