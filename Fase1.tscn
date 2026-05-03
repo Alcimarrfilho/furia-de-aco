@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://docm1571smigc" path="res://Knight 2D Pixel Art/Sprites/with_outline/IDLE.png" id="3_5jc3a"]
 [ext_resource type="Texture2D" uid="uid://4tjh3wlju2ux" path="res://Knight 2D Pixel Art/Sprites/with_outline/JUMP.png" id="4_1wj8m"]
 [ext_resource type="Texture2D" uid="uid://dqiq0fw83m27" path="res://Knight 2D Pixel Art/Sprites/with_outline/RUN.png" id="5_82fsy"]
+[ext_resource type="Script" uid="uid://b5kkhfygwp0gj" path="res://BuracoMorte.gd" id="7_1wj8m"]
+[ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="8_pyyah"]
+[ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="9_pyyah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
 size = Vector2(39.99999, 56)
@@ -202,7 +205,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
-size = Vector2(1687, 46.3125)
+size = Vector2(1752, 33.3125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud5y3"]
 size = Vector2(39, 461)
@@ -214,13 +217,17 @@ size = Vector2(1440, 51)
 size = Vector2(28.251259, 25.779167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82fsy"]
-size = Vector2(133, 17)
+size = Vector2(3289, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsegr"]
+atlas = ExtResource("9_pyyah")
+region = Rect2(0, 0, 19.413925, 21)
 
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
 [node name="FundoJornada" type="Sprite2D" parent="." unique_id=1433368953]
-position = Vector2(605.0937, 22.50002)
-scale = Vector2(2.0771387, 1.4032738)
+position = Vector2(565.5937, 22.50002)
+scale = Vector2(2.1270123, 1.4032738)
 texture = ExtResource("1_5jc3a")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1290052003]
@@ -247,12 +254,11 @@ position = Vector2(74.666664, 4)
 position = Vector2(25, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
-position = Vector2(-194.5, 381.84375)
+position = Vector2(-227, 375.34375)
 shape = SubResource("RectangleShape2D_3jppy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
-visible = false
-position = Vector2(-1014, 139)
+position = Vector2(-1121, 136)
 shape = SubResource("RectangleShape2D_ud5y3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1860480150]
@@ -275,15 +281,56 @@ position = Vector2(0.855834, -27.177063)
 shape = SubResource("RectangleShape2D_1wj8m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1837236684]
+visible = false
 offset_left = 676.0
 offset_top = 404.0
 offset_right = 811.0
 offset_bottom = 490.0
 color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
 
-[node name="BuracoMorte" type="Area2D" parent="." unique_id=1590901774]
-position = Vector2(743, 458)
+[node name="BuracoMorte" type="Area2D" parent="." unique_id=1590901774 node_paths=PackedStringArray("ponto_de_retorno")]
+position = Vector2(747, 424)
+script = ExtResource("7_1wj8m")
+ponto_de_retorno = NodePath("../PontoRetorno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=143634828]
-position = Vector2(0.5, 18.5)
+position = Vector2(-133.5, 48.5)
 shape = SubResource("RectangleShape2D_82fsy")
+
+[node name="PontoRetorno" type="Marker2D" parent="." unique_id=6855226]
+position = Vector2(556, 89)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=945112273]
+script = ExtResource("8_pyyah")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=541880638]
+anchors_preset = -1
+anchor_left = -0.609
+anchor_top = -0.106000006
+anchor_right = -0.609
+anchor_bottom = -0.106000006
+offset_left = 930.56805
+offset_top = 88.688
+offset_right = 1113.5681
+offset_bottom = 216.688
+
+[node name="Coracao1" type="TextureRect" parent="HUD/HBoxContainer" unique_id=1583744712]
+layout_direction = 3
+layout_mode = 2
+texture = SubResource("AtlasTexture_rsegr")
+stretch_mode = 5
+
+[node name="Coracao2" type="TextureRect" parent="HUD/HBoxContainer" unique_id=1951253990]
+layout_direction = 2
+layout_mode = 2
+texture = SubResource("AtlasTexture_rsegr")
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="HUD/HBoxContainer" unique_id=1264564921]
+layout_direction = 2
+layout_mode = 2
+texture = SubResource("AtlasTexture_rsegr")
+stretch_mode = 5
+
+[connection signal="body_entered" from="BuracoMorte" to="CharacterBody2D" method="_on_buraco_morte_body_entered"]
+[connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
