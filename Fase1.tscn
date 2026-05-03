@@ -202,19 +202,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
-size = Vector2(3266.25, 45.25)
+size = Vector2(1687, 46.3125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud5y3"]
 size = Vector2(39, 461)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jc3a"]
+size = Vector2(1440, 51)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wj8m"]
 size = Vector2(28.251259, 25.779167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82fsy"]
+size = Vector2(133, 17)
 
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
 [node name="FundoJornada" type="Sprite2D" parent="." unique_id=1433368953]
-position = Vector2(612, 104.00002)
-scale = Vector2(2.0684185, 1.1190475)
+position = Vector2(605.0937, 22.50002)
+scale = Vector2(2.0771387, 1.4032738)
 texture = ExtResource("1_5jc3a")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1290052003]
@@ -238,10 +244,10 @@ speed_scale = 1.5
 position = Vector2(74.666664, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=633372967]
-position = Vector2(0, 50)
+position = Vector2(25, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
-position = Vector2(613.125, 378)
+position = Vector2(-194.5, 381.84375)
 shape = SubResource("RectangleShape2D_3jppy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
@@ -249,8 +255,12 @@ visible = false
 position = Vector2(-1014, 139)
 shape = SubResource("RectangleShape2D_ud5y3")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1860480150]
+position = Vector2(1508, 383.5)
+shape = SubResource("RectangleShape2D_5jc3a")
+
 [node name="Plataforma1" type="Sprite2D" parent="." unique_id=231633193]
-position = Vector2(154.75, 306)
+position = Vector2(-71, 300)
 scale = Vector2(13.672413, 1.0714285)
 texture = ExtResource("1_5jc3a")
 region_enabled = true
@@ -263,3 +273,17 @@ position = Vector2(-0.7740206, 27)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma1/StaticBody2D" unique_id=1850617037]
 position = Vector2(0.855834, -27.177063)
 shape = SubResource("RectangleShape2D_1wj8m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1837236684]
+offset_left = 676.0
+offset_top = 404.0
+offset_right = 811.0
+offset_bottom = 490.0
+color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+
+[node name="BuracoMorte" type="Area2D" parent="." unique_id=1590901774]
+position = Vector2(743, 458)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=143634828]
+position = Vector2(0.5, 18.5)
+shape = SubResource("RectangleShape2D_82fsy")
