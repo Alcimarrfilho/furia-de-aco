@@ -254,14 +254,17 @@ position = Vector2(74.666664, 4)
 position = Vector2(25, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
+visible = false
 position = Vector2(-227, 375.34375)
 shape = SubResource("RectangleShape2D_3jppy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
+visible = false
 position = Vector2(-1121, 136)
 shape = SubResource("RectangleShape2D_ud5y3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1860480150]
+visible = false
 position = Vector2(1508, 383.5)
 shape = SubResource("RectangleShape2D_5jc3a")
 
@@ -281,7 +284,6 @@ position = Vector2(0.855834, -27.177063)
 shape = SubResource("RectangleShape2D_1wj8m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1837236684]
-visible = false
 offset_left = 676.0
 offset_top = 404.0
 offset_right = 811.0
@@ -294,6 +296,7 @@ script = ExtResource("7_1wj8m")
 ponto_de_retorno = NodePath("../PontoRetorno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=143634828]
+visible = false
 position = Vector2(-133.5, 48.5)
 shape = SubResource("RectangleShape2D_82fsy")
 
