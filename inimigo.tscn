@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://d1u2g3vh0gsv3"]
+
+[ext_resource type="Script" uid="uid://cu7k5mlvd2boa" path="res://inimigo.gd" id="1_0b8xr"]
+[ext_resource type="Texture2D" uid="uid://y03pi88gyuet" path="res://Medieval Warrior Pack 2/Sprites/Run.png" id="1_030df"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8xr"]
+atlas = ExtResource("1_030df")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45jm"]
+atlas = ExtResource("1_030df")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enrbn"]
+atlas = ExtResource("1_030df")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0fh3"]
+atlas = ExtResource("1_030df")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o83ti"]
+atlas = ExtResource("1_030df")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cs1f"]
+atlas = ExtResource("1_030df")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekwcj"]
+atlas = ExtResource("1_030df")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eewpo"]
+atlas = ExtResource("1_030df")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3af6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b8xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enrbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0fh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o83ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cs1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekwcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eewpo")
+}],
+"loop": true,
+"name": &"andar",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nglqo"]
+size = Vector2(27, 39)
+
+[node name="Inimigo" type="CharacterBody2D" unique_id=562675298]
+scale = Vector2(2.2, 2.2)
+script = ExtResource("1_0b8xr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=388509330]
+sprite_frames = SubResource("SpriteFrames_3af6e")
+animation = &"andar"
+autoplay = "andar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673823834]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_nglqo")

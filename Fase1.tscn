@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4tjh3wlju2ux" path="res://Knight 2D Pixel Art/Sprites/with_outline/JUMP.png" id="4_1wj8m"]
 [ext_resource type="Texture2D" uid="uid://dqiq0fw83m27" path="res://Knight 2D Pixel Art/Sprites/with_outline/RUN.png" id="5_82fsy"]
 [ext_resource type="Script" uid="uid://b5kkhfygwp0gj" path="res://BuracoMorte.gd" id="7_1wj8m"]
+[ext_resource type="PackedScene" uid="uid://d1u2g3vh0gsv3" path="res://inimigo.tscn" id="7_6h1au"]
 [ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="8_pyyah"]
 [ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="9_pyyah"]
 
@@ -205,7 +206,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
-size = Vector2(1752, 33.3125)
+size = Vector2(1815, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyyah"]
+size = Vector2(41, 502)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud5y3"]
 size = Vector2(39, 461)
@@ -214,10 +218,10 @@ size = Vector2(39, 461)
 size = Vector2(1440, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wj8m"]
-size = Vector2(28.251259, 25.779167)
+size = Vector2(28.251259, 7.466671)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82fsy"]
-size = Vector2(3289, 39)
+size = Vector2(3359.5, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsegr"]
 atlas = ExtResource("9_pyyah")
@@ -226,8 +230,8 @@ region = Rect2(0, 0, 19.413925, 21)
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
 [node name="FundoJornada" type="Sprite2D" parent="." unique_id=1433368953]
-position = Vector2(565.5937, 22.50002)
-scale = Vector2(2.1270123, 1.4032738)
+position = Vector2(569, -11.749984)
+scale = Vector2(2.1270123, 1.3147322)
 texture = ExtResource("1_5jc3a")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1290052003]
@@ -241,8 +245,8 @@ position = Vector2(-264.66675, 156.66667)
 shape = SubResource("RectangleShape2D_coe7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1129986921]
-position = Vector2(-262.6667, 157.33334)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-270, 141.33334)
+scale = Vector2(1.5, 1.3928573)
 sprite_frames = SubResource("SpriteFrames_pyyah")
 animation = &"run"
 speed_scale = 1.5
@@ -251,12 +255,18 @@ speed_scale = 1.5
 position = Vector2(74.666664, 4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=633372967]
+visible = false
 position = Vector2(25, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
 visible = false
-position = Vector2(-227, 375.34375)
+position = Vector2(-265.5, 326)
 shape = SubResource("RectangleShape2D_3jppy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1703297719]
+visible = false
+position = Vector2(2200.5, 108)
+shape = SubResource("RectangleShape2D_pyyah")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
 visible = false
@@ -265,43 +275,45 @@ shape = SubResource("RectangleShape2D_ud5y3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1860480150]
 visible = false
-position = Vector2(1508, 383.5)
+position = Vector2(1521, 327)
 shape = SubResource("RectangleShape2D_5jc3a")
 
+[node name="Inimigo" parent="StaticBody2D" unique_id=562675298 instance=ExtResource("7_6h1au")]
+position = Vector2(1973, 246)
+
 [node name="Plataforma1" type="Sprite2D" parent="." unique_id=231633193]
-position = Vector2(-71, 300)
+position = Vector2(-71, 247.00003)
 scale = Vector2(13.672413, 1.0714285)
 texture = ExtResource("1_5jc3a")
 region_enabled = true
 region_rect = Rect2(777.15594, 609.8596, 29.30127, 28.915771)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Plataforma1" unique_id=206689425]
-visible = false
 position = Vector2(-0.7740206, 27)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma1/StaticBody2D" unique_id=1850617037]
-position = Vector2(0.855834, -27.177063)
+visible = false
+position = Vector2(0.855834, -36.333313)
 shape = SubResource("RectangleShape2D_1wj8m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1837236684]
-offset_left = 676.0
-offset_top = 404.0
-offset_right = 811.0
-offset_bottom = 490.0
+offset_left = 682.0
+offset_top = 345.0
+offset_right = 823.0
+offset_bottom = 431.0
 color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
 
 [node name="BuracoMorte" type="Area2D" parent="." unique_id=1590901774 node_paths=PackedStringArray("ponto_de_retorno")]
-position = Vector2(747, 424)
+position = Vector2(750, 396)
 script = ExtResource("7_1wj8m")
 ponto_de_retorno = NodePath("../PontoRetorno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=143634828]
-visible = false
-position = Vector2(-133.5, 48.5)
+position = Vector2(-169, 23.5)
 shape = SubResource("RectangleShape2D_82fsy")
 
 [node name="PontoRetorno" type="Marker2D" parent="." unique_id=6855226]
-position = Vector2(556, 89)
+position = Vector2(387, 92)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=945112273]
 script = ExtResource("8_pyyah")
