@@ -5,16 +5,16 @@ extends Area2D
 
 func _on_body_entered(body):
 	# Verifica se quem encostou no buraco foi o cavaleiro
-	if body.name == "CharacterBody2D":
+	if body.name == "cavaleiro":
 		
 		# Tira 1 coração
 		Global.vidas -= 1
 		
 		# Se ele ainda tem vidas sobrando...
 		if Global.vidas > 0:
-			# Verifica se você conectou o ponto no Inspetor para não dar erro
+			# Verifica se conectou o ponto no Inspetor
 			if ponto_de_retorno != null:
-				# TELETRANSPORTE: Muda a posição do cavaleiro para a posição do ponto
+				# Muda a posição do cavaleiro para a posição do ponto
 				body.global_position = ponto_de_retorno.global_position
 				
 				# Zera a velocidade de queda dele, senão ele vai teleportar e continuar caindo feito uma pedra

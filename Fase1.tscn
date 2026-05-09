@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="8_pyyah"]
 [ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="9_pyyah"]
 [ext_resource type="PackedScene" uid="uid://bi3in0sd00vl4" path="res://moeda.tscn" id="11_spkfo"]
+[ext_resource type="Script" uid="uid://xao33lit3wvi" path="res://label.gd" id="12_7kcub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
 size = Vector2(39.99999, 56)
@@ -225,7 +226,7 @@ size = Vector2(1440, 51)
 size = Vector2(28.251259, 25.199965)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82fsy"]
-size = Vector2(3359.5, 29)
+size = Vector2(3359.5, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsegr"]
 atlas = ExtResource("9_pyyah")
@@ -269,7 +270,6 @@ shape = SubResource("RectangleShape2D_6h1au")
 position = Vector2(25, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
-visible = false
 position = Vector2(-265.5, 326)
 shape = SubResource("RectangleShape2D_3jppy")
 
@@ -284,7 +284,6 @@ position = Vector2(-1121, 136)
 shape = SubResource("RectangleShape2D_ud5y3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1860480150]
-visible = false
 position = Vector2(1521, 327)
 shape = SubResource("RectangleShape2D_5jc3a")
 
@@ -307,20 +306,19 @@ position = Vector2(0.855834, -27.466629)
 shape = SubResource("RectangleShape2D_1wj8m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1837236684]
-offset_left = 682.0
+offset_left = 670.0
 offset_top = 345.0
 offset_right = 823.0
-offset_bottom = 431.0
+offset_bottom = 427.0
 color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
 
 [node name="BuracoMorte" type="Area2D" parent="." unique_id=1590901774 node_paths=PackedStringArray("ponto_de_retorno")]
-position = Vector2(750, 396)
+position = Vector2(742, 390)
 script = ExtResource("7_1wj8m")
 ponto_de_retorno = NodePath("../PontoRetorno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=143634828]
-visible = false
-position = Vector2(-169, 23.5)
+position = Vector2(-8, 17)
 shape = SubResource("RectangleShape2D_82fsy")
 
 [node name="PontoRetorno" type="Marker2D" parent="." unique_id=6855226]
@@ -335,9 +333,9 @@ anchor_left = -0.609
 anchor_top = -0.106000006
 anchor_right = -0.609
 anchor_bottom = -0.106000006
-offset_left = 930.56805
+offset_left = 839.56805
 offset_top = 88.688
-offset_right = 1113.5681
+offset_right = 921.56805
 offset_bottom = 216.688
 
 [node name="Coracao1" type="TextureRect" parent="HUD/HBoxContainer" unique_id=1583744712]
@@ -366,6 +364,15 @@ position = Vector2(-112, 191)
 
 [node name="Moeda3" parent="." unique_id=1779725036 instance=ExtResource("11_spkfo")]
 position = Vector2(-40, 189)
+
+[node name="HUD2" type="CanvasLayer" parent="." unique_id=792871687]
+
+[node name="Label" type="Label" parent="HUD2" unique_id=664295482]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "Moedas: 0"
+script = ExtResource("12_7kcub")
 
 [connection signal="body_entered" from="BuracoMorte" to="cavaleiro" method="_on_buraco_morte_body_entered"]
 [connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
