@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d1u2g3vh0gsv3" path="res://inimigo.tscn" id="7_6h1au"]
 [ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="8_pyyah"]
 [ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="9_pyyah"]
+[ext_resource type="PackedScene" uid="uid://bi3in0sd00vl4" path="res://moeda.tscn" id="11_spkfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
 size = Vector2(39.99999, 56)
@@ -205,6 +206,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1au"]
+size = Vector2(6.0000076, 37.33333)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
 size = Vector2(1815, 50)
 
@@ -218,7 +222,7 @@ size = Vector2(39, 461)
 size = Vector2(1440, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wj8m"]
-size = Vector2(28.251259, 7.466671)
+size = Vector2(28.251259, 25.199965)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82fsy"]
 size = Vector2(3359.5, 29)
@@ -230,32 +234,38 @@ region = Rect2(0, 0, 19.413925, 21)
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
 [node name="FundoJornada" type="Sprite2D" parent="." unique_id=1433368953]
-position = Vector2(569, -11.749984)
-scale = Vector2(2.1270123, 1.3147322)
+position = Vector2(572.7032, -11.749984)
+scale = Vector2(2.1316879, 1.3147322)
 texture = ExtResource("1_5jc3a")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1290052003]
+[node name="cavaleiro" type="CharacterBody2D" parent="." unique_id=1290052003]
 position = Vector2(-405, 28)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ud5y3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1207814232]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cavaleiro" unique_id=1207814232]
 visible = false
 position = Vector2(-264.66675, 156.66667)
 shape = SubResource("RectangleShape2D_coe7y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1129986921]
-position = Vector2(-270, 141.33334)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="cavaleiro" unique_id=1129986921]
+position = Vector2(-270, 155.33334)
 scale = Vector2(1.5, 1.3928573)
 sprite_frames = SubResource("SpriteFrames_pyyah")
 animation = &"run"
 speed_scale = 1.5
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=811949544]
+[node name="Camera2D" type="Camera2D" parent="cavaleiro" unique_id=811949544]
 position = Vector2(74.666664, 4)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=633372967]
+[node name="AtaqueArea" type="Area2D" parent="cavaleiro" unique_id=119571623]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cavaleiro/AtaqueArea" unique_id=91115105]
 visible = false
+position = Vector2(-254.66669, 162)
+shape = SubResource("RectangleShape2D_6h1au")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=633372967]
 position = Vector2(25, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
@@ -278,8 +288,8 @@ visible = false
 position = Vector2(1521, 327)
 shape = SubResource("RectangleShape2D_5jc3a")
 
-[node name="Inimigo" parent="StaticBody2D" unique_id=562675298 instance=ExtResource("7_6h1au")]
-position = Vector2(1973, 246)
+[node name="Inimigo2" parent="StaticBody2D" unique_id=324607292 instance=ExtResource("7_6h1au")]
+position = Vector2(1849, 33)
 
 [node name="Plataforma1" type="Sprite2D" parent="." unique_id=231633193]
 position = Vector2(-71, 247.00003)
@@ -293,7 +303,7 @@ position = Vector2(-0.7740206, 27)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma1/StaticBody2D" unique_id=1850617037]
 visible = false
-position = Vector2(0.855834, -36.333313)
+position = Vector2(0.855834, -27.466629)
 shape = SubResource("RectangleShape2D_1wj8m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1837236684]
@@ -309,6 +319,7 @@ script = ExtResource("7_1wj8m")
 ponto_de_retorno = NodePath("../PontoRetorno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=143634828]
+visible = false
 position = Vector2(-169, 23.5)
 shape = SubResource("RectangleShape2D_82fsy")
 
@@ -347,5 +358,14 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_rsegr")
 stretch_mode = 5
 
-[connection signal="body_entered" from="BuracoMorte" to="CharacterBody2D" method="_on_buraco_morte_body_entered"]
+[node name="Moeda" parent="." unique_id=819013383 instance=ExtResource("11_spkfo")]
+position = Vector2(-175, 189)
+
+[node name="Moeda2" parent="." unique_id=1128323596 instance=ExtResource("11_spkfo")]
+position = Vector2(-112, 191)
+
+[node name="Moeda3" parent="." unique_id=1779725036 instance=ExtResource("11_spkfo")]
+position = Vector2(-40, 189)
+
+[connection signal="body_entered" from="BuracoMorte" to="cavaleiro" method="_on_buraco_morte_body_entered"]
 [connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
