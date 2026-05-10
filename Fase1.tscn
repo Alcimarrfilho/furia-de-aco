@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="9_pyyah"]
 [ext_resource type="PackedScene" uid="uid://bi3in0sd00vl4" path="res://moeda.tscn" id="11_spkfo"]
 [ext_resource type="Script" uid="uid://xao33lit3wvi" path="res://label.gd" id="12_7kcub"]
+[ext_resource type="Script" uid="uid://ckx6rrkei5cl3" path="res://color_rect.gd" id="13_tifhp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
 size = Vector2(39.99999, 56)
@@ -213,9 +214,6 @@ size = Vector2(6.0000076, 37.33333)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
 size = Vector2(1815, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyyah"]
-size = Vector2(41, 502)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud5y3"]
 size = Vector2(39, 461)
 
@@ -231,6 +229,9 @@ size = Vector2(3359.5, 14)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsegr"]
 atlas = ExtResource("9_pyyah")
 region = Rect2(0, 0, 19.413925, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tifhp"]
+size = Vector2(40.5, 341)
 
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
@@ -272,11 +273,6 @@ position = Vector2(25, 48)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1841748430]
 position = Vector2(-265.5, 326)
 shape = SubResource("RectangleShape2D_3jppy")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1703297719]
-visible = false
-position = Vector2(2200.5, 108)
-shape = SubResource("RectangleShape2D_pyyah")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=831563750]
 visible = false
@@ -373,6 +369,52 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 30
 text = "Moedas: 0"
 script = ExtResource("12_7kcub")
+
+[node name="ColorRect" type="ColorRect" parent="HUD2" unique_id=1649076977]
+offset_left = -5.0
+offset_top = -23.0
+offset_right = 1325.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 0.6627451)
+script = ExtResource("13_tifhp")
+
+[node name="Label" type="Label" parent="HUD2/ColorRect" unique_id=508050479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 19.0
+offset_right = -135.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "O castelo foi atacado! Bandidos impiedosos sequestraram os aldeões e servos do nosso Rei. 
+
+Você, o nosso mais bravo e único Cavaleiro disponível, foi encarregado desta missão de resgate.
+
+
+
+OBJETIVO DA FASE 1: 
+
+Explore o Vale Verde e colete 4 Moedas de Ouro para destrancar o portal e avançar na sua busca. O nosso povo conta com você!
+
+
+
+COMANDOS DO JOGO:
+
+• Setas do Teclado: Mover o Cavaleiro
+
+• Barra de Espaço ou Enter: Pular
+
+• tecla F: Atacar"
+autowrap_mode = 2
+
+[node name="Portal" type="Area2D" parent="." unique_id=27900381]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=1961361645]
+position = Vector2(2234.25, 169.5)
+shape = SubResource("RectangleShape2D_tifhp")
 
 [connection signal="body_entered" from="BuracoMorte" to="cavaleiro" method="_on_buraco_morte_body_entered"]
 [connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8f5ojft8dk5a"]
+
+[node name="Node2D" type="Node2D" unique_id=1919700582]
+
+[node name="Label" type="Label" parent="." unique_id=1499853490]
+offset_left = 36.0
+offset_top = 4.0
+offset_right = 318.0
+offset_bottom = 27.0
+text = "BEM-VINDO À FASE 2!"
