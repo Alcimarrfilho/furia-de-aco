@@ -1,6 +1,22 @@
 [gd_scene format=3 uid="uid://c8f5ojft8dk5a"]
 
+[ext_resource type="Texture2D" uid="uid://cwhry81pk40l4" path="res://fundo_jornada2.jpg" id="1_dv3c2"]
+[ext_resource type="PackedScene" uid="uid://iwxpkl4d7253" path="res://cavaleiro.tscn" id="2_73kgi"]
+[ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="3_jnsp1"]
+[ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="4_ltj3d"]
+[ext_resource type="Script" uid="uid://xao33lit3wvi" path="res://label.gd" id="5_qgfrg"]
+[ext_resource type="Script" uid="uid://ckx6rrkei5cl3" path="res://color_rect.gd" id="6_j7ljf"]
+[ext_resource type="PackedScene" uid="uid://bi3in0sd00vl4" path="res://moeda.tscn" id="7_ltj3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv3c2"]
+size = Vector2(2172, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smwdg"]
+atlas = ExtResource("4_ltj3d")
+region = Rect2(0, 0, 19.413925, 21)
+
 [node name="Node2D" type="Node2D" unique_id=1919700582]
+metadata/_edit_vertical_guides_ = [-149.0, -138.0, -138.0, -149.0]
 
 [node name="Label" type="Label" parent="." unique_id=1499853490]
 offset_left = 36.0
@@ -8,3 +24,103 @@ offset_top = 4.0
 offset_right = 318.0
 offset_bottom = 27.0
 text = "BEM-VINDO À FASE 2!"
+
+[node name="FundoJornada2" type="Sprite2D" parent="." unique_id=2129495556]
+position = Vector2(332.5, 150)
+scale = Vector2(2.132, 2.13)
+texture = ExtResource("1_dv3c2")
+
+[node name="cavaleiro" parent="." unique_id=1167765930 instance=ExtResource("2_73kgi")]
+
+[node name="Chao" type="StaticBody2D" parent="." unique_id=1673247992]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao" unique_id=1352466876]
+position = Vector2(331, 540)
+shape = SubResource("RectangleShape2D_dv3c2")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=815523555]
+script = ExtResource("3_jnsp1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=300410012]
+anchors_preset = -1
+anchor_left = -0.609
+anchor_top = -0.106000006
+anchor_right = -0.609
+anchor_bottom = -0.106000006
+offset_left = 839.56805
+offset_top = 88.688
+offset_right = 921.56805
+offset_bottom = 216.688
+
+[node name="Coracao1" type="TextureRect" parent="HUD/HBoxContainer" unique_id=985709215]
+layout_direction = 3
+layout_mode = 2
+texture = SubResource("AtlasTexture_smwdg")
+stretch_mode = 5
+
+[node name="Coracao2" type="TextureRect" parent="HUD/HBoxContainer" unique_id=1377309872]
+layout_direction = 2
+layout_mode = 2
+texture = SubResource("AtlasTexture_smwdg")
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="HUD/HBoxContainer" unique_id=1785119683]
+layout_direction = 2
+layout_mode = 2
+texture = SubResource("AtlasTexture_smwdg")
+stretch_mode = 5
+
+[node name="HUD2" type="CanvasLayer" parent="." unique_id=65502087]
+
+[node name="Label" type="Label" parent="HUD2" unique_id=1835506319]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "Moedas: 0"
+script = ExtResource("5_qgfrg")
+
+[node name="ColorRect" type="ColorRect" parent="HUD2" unique_id=168207606]
+offset_left = -5.0
+offset_top = -23.0
+offset_right = 1325.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 0.6627451)
+script = ExtResource("6_j7ljf")
+
+[node name="Label" type="Label" parent="HUD2/ColorRect" unique_id=1748792700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 30.0
+offset_right = -139.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "O castelo foi atacado! Bandidos impiedosos sequestraram os aldeões e servos do nosso Rei. 
+
+Você, o nosso mais bravo e único Cavaleiro disponível, foi encarregado desta missão de resgate.
+
+
+
+OBJETIVO DA FASE 1: 
+
+Explore o Vale Verde e colete 4 Moedas de Ouro para destrancar o portal e avançar na sua busca. O nosso povo conta com você!
+
+
+
+COMANDOS DO JOGO:
+
+• Setas do Teclado: Mover o Cavaleiro
+
+• Barra de Espaço ou Enter: Pular
+
+• tecla F: Atacar"
+autowrap_mode = 2
+
+[node name="Moeda" parent="." unique_id=819013383 instance=ExtResource("7_ltj3d")]
+position = Vector2(-2, 330)
+
+[node name="Moeda2" parent="." unique_id=1086631183 instance=ExtResource("7_ltj3d")]
+position = Vector2(-74, 332)
