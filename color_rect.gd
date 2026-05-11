@@ -2,7 +2,7 @@ extends ColorRect
 
 func _ready():
 	# Começa a contar 8 segundos assim que a fase abre
-	await get_tree().create_timer(45.0).timeout
+	await get_tree().create_timer(6.0).timeout
 	sumir_caixa()
 
 func _input(event):
