@@ -7,13 +7,25 @@
 [ext_resource type="Script" uid="uid://xao33lit3wvi" path="res://label.gd" id="5_qgfrg"]
 [ext_resource type="Script" uid="uid://ckx6rrkei5cl3" path="res://color_rect.gd" id="6_j7ljf"]
 [ext_resource type="PackedScene" uid="uid://bi3in0sd00vl4" path="res://moeda.tscn" id="7_ltj3d"]
+[ext_resource type="Texture2D" uid="uid://w670eaq7w7di" path="res://fundo_jornada (1).png" id="8_qgfrg"]
+[ext_resource type="Script" uid="uid://b5kkhfygwp0gj" path="res://BuracoMorte.gd" id="9_j7ljf"]
+[ext_resource type="PackedScene" uid="uid://d1u2g3vh0gsv3" path="res://inimigo.tscn" id="10_smwdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv3c2"]
-size = Vector2(2172, 68)
+size = Vector2(960.375, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smwdg"]
 atlas = ExtResource("4_ltj3d")
 region = Rect2(0, 0, 19.413925, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7ljf"]
+size = Vector2(28.251259, 25.199965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smwdg"]
+size = Vector2(3359.5, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvw8t"]
+size = Vector2(40.5, 341)
 
 [node name="Node2D" type="Node2D" unique_id=1919700582]
 metadata/_edit_vertical_guides_ = [-149.0, -138.0, -138.0, -149.0]
@@ -35,7 +47,13 @@ texture = ExtResource("1_dv3c2")
 [node name="Chao" type="StaticBody2D" parent="." unique_id=1673247992]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao" unique_id=1352466876]
-position = Vector2(331, 540)
+position = Vector2(-276.625, 540)
+shape = SubResource("RectangleShape2D_dv3c2")
+
+[node name="Chao2" type="StaticBody2D" parent="." unique_id=1109205173]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao2" unique_id=992501710]
+position = Vector2(948.8125, 540)
 shape = SubResource("RectangleShape2D_dv3c2")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=815523555]
@@ -104,9 +122,9 @@ Você, o nosso mais bravo e único Cavaleiro disponível, foi encarregado desta 
 
 
 
-OBJETIVO DA FASE 1: 
+OBJETIVO DA FASE 2: 
 
-Explore o Vale Verde e colete 4 Moedas de Ouro para destrancar o portal e avançar na sua busca. O nosso povo conta com você!
+Explore as Ruínas Antigas e colete 7 Moedas de Ouro para destrancar o portal e avançar na sua busca. O nosso povo conta com você!
 
 
 
@@ -120,7 +138,46 @@ COMANDOS DO JOGO:
 autowrap_mode = 2
 
 [node name="Moeda" parent="." unique_id=819013383 instance=ExtResource("7_ltj3d")]
-position = Vector2(-2, 330)
+position = Vector2(85, 352)
 
 [node name="Moeda2" parent="." unique_id=1086631183 instance=ExtResource("7_ltj3d")]
-position = Vector2(-74, 332)
+position = Vector2(-57, 352)
+
+[node name="Plataforma1" type="Sprite2D" parent="." unique_id=832905327]
+position = Vector2(18, 402.00003)
+scale = Vector2(13.672413, 1.2142864)
+texture = ExtResource("8_qgfrg")
+region_enabled = true
+region_rect = Rect2(777.15594, 609.8596, 29.30127, 28.915771)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plataforma1" unique_id=920497335]
+position = Vector2(-0.7740206, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma1/StaticBody2D" unique_id=1278755388]
+visible = false
+position = Vector2(0.855834, -27.466629)
+shape = SubResource("RectangleShape2D_j7ljf")
+
+[node name="BuracoMorte" type="Area2D" parent="." unique_id=187457963 node_paths=PackedStringArray("ponto_de_retorno")]
+position = Vector2(340, 569)
+script = ExtResource("9_j7ljf")
+ponto_de_retorno = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuracoMorte" unique_id=1721375433]
+position = Vector2(-8, 17)
+shape = SubResource("RectangleShape2D_smwdg")
+
+[node name="Inimigo" parent="." unique_id=562675298 instance=ExtResource("10_smwdg")]
+position = Vector2(-62, 333)
+
+[node name="Inimigo2" parent="." unique_id=2011881570 instance=ExtResource("10_smwdg")]
+position = Vector2(611, 454.99997)
+
+[node name="Portal" type="Area2D" parent="." unique_id=1021091899]
+position = Vector2(1423, 443)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=1463937324]
+position = Vector2(2234.25, 169.5)
+shape = SubResource("RectangleShape2D_gvw8t")
+
+[connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
