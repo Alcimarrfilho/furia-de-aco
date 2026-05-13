@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://dopv4appvop35"]
 
-[ext_resource type="Texture2D" uid="uid://beq0y7cmtc87d" path="res://imagem_cenario3.png" id="1_ifecm"]
+[ext_resource type="Texture2D" uid="uid://ukbgqb7v0gmv" path="res://ChatGPT Image 12 de mai. de 2026, 17_32_14.png" id="1_ifecm"]
 
 [node name="Node2D" type="Node2D" unique_id=188445151]
 
-[node name="ImagemCenario3" type="Sprite2D" parent="." unique_id=1373153564]
-position = Vector2(1707, 246)
-scale = Vector2(2.4055395, 1.0104166)
+[node name="foto-cenario3" type="Sprite2D" parent="." unique_id=1477947419]
+position = Vector2(5004.25, -167)
+scale = Vector2(5.9781694, 2.6386826)
 texture = ExtResource("1_ifecm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=360019594]
+position = Vector2(227, 138)
+zoom = Vector2(0.5, 0.5)
+limit_left = 0
+limit_top = -1300
+limit_right = 10000
+limit_bottom = 1000
+drag_top_margin = 0.18
+drag_right_margin = 1.0
+drag_bottom_margin = 1.0

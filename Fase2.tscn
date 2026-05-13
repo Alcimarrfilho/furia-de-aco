@@ -28,6 +28,7 @@ size = Vector2(3359.5, 14)
 size = Vector2(40.5, 341)
 
 [node name="Node2D" type="Node2D" unique_id=1919700582]
+position = Vector2(1, 0)
 metadata/_edit_vertical_guides_ = [-149.0, -138.0, -138.0, -149.0]
 
 [node name="Label" type="Label" parent="." unique_id=1499853490]
