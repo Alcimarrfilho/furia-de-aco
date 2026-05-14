@@ -4,6 +4,8 @@ var velocidade = 150.0
 var direcao = 1 
 var esta_morto = false # NOVIDADE: Variável para saber se ele já tomou o golpe
 
+const MOEDA_SCENE = preload("res://moeda.tscn")
+
 func _physics_process(delta: float) -> void:
 	# 1. Gravidade
 	if not is_on_floor():
@@ -44,6 +46,12 @@ func tomar_dano():
 	
 	# Desativa o Hurtbox para ele não te dar dano enquanto cai morto
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+	
+	# --- ADICIONADO: Lógica do Drop ---
+	var nova_moeda = MOEDA_SCENE.instantiate()
+	get_parent().add_child(nova_moeda)
+	nova_moeda.global_position = global_position
+	# ----------------------------------
 	
 	# Troque "morte" pelo nome exato da animação que você criou no AnimationPlayer
 	$AnimationPlayer.play("morte")
