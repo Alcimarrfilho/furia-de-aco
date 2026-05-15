@@ -2,20 +2,39 @@
 
 [ext_resource type="Texture2D" uid="uid://ukbgqb7v0gmv" path="res://ChatGPT Image 12 de mai. de 2026, 17_32_14.png" id="1_ifecm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifecm"]
+size = Vector2(138.5, 1043)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mv3b"]
+size = Vector2(1487.5, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3lt4"]
+size = Vector2(2322, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g4g3"]
+size = Vector2(548, 48)
+
 [node name="Node2D" type="Node2D" unique_id=188445151]
 
 [node name="foto-cenario3" type="Sprite2D" parent="." unique_id=1477947419]
-position = Vector2(5004.25, -167)
-scale = Vector2(5.9781694, 2.6386826)
+position = Vector2(1997, 23)
+scale = Vector2(3.887784, 1.8485653)
 texture = ExtResource("1_ifecm")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=360019594]
-position = Vector2(227, 138)
-zoom = Vector2(0.5, 0.5)
-limit_left = 0
-limit_top = -1300
-limit_right = 10000
-limit_bottom = 1000
-drag_top_margin = 0.18
-drag_right_margin = 1.0
-drag_bottom_margin = 1.0
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=493301279]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1288464354]
+position = Vector2(-1191.25, 26.5)
+shape = SubResource("RectangleShape2D_ifecm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=720484719]
+position = Vector2(-496.75, 484)
+shape = SubResource("RectangleShape2D_6mv3b")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2086992476]
+position = Vector2(1965, 485.5)
+shape = SubResource("RectangleShape2D_j3lt4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1113766965]
+position = Vector2(528, 584)
+shape = SubResource("RectangleShape2D_1g4g3")
