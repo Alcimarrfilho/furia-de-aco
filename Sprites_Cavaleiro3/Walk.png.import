@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbxqldsrmnet4"
-path="res://.godot/imported/Death.png-640b9827ef1926217d68b77e206512c1.ctex"
+uid="uid://c4ig7hi1iyaqm"
+path="res://.godot/imported/Walk.png-0dd0ca84fdeca057dd08f58ca1df74c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Medieval Warrior Pack 2/Sprites/Death.png"
-dest_files=["res://.godot/imported/Death.png-640b9827ef1926217d68b77e206512c1.ctex"]
+source_file="res://Sprites_Cavaleiro3/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-0dd0ca84fdeca057dd08f58ca1df74c4.ctex"]
 
 [params]
 

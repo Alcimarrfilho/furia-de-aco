@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddmtnf31u2e6t"
-path="res://.godot/imported/Fall.png-86c80927877d5cc177cd498be121917d.ctex"
+uid="uid://7077ft52exr5"
+path="res://.godot/imported/Attack 2.png-60d080ba0650bc4e272b9859f3f7b41d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Medieval Warrior Pack 2/Sprites/Fall.png"
-dest_files=["res://.godot/imported/Fall.png-86c80927877d5cc177cd498be121917d.ctex"]
+source_file="res://Sprites_Cavaleiro3/Attack 2.png"
+dest_files=["res://.godot/imported/Attack 2.png-60d080ba0650bc4e272b9859f3f7b41d.ctex"]
 
 [params]
 

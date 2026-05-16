@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn2leqcx1pdfa"
-path="res://.godot/imported/Jump.png-6cdb3c2dabd05564809f7dca9b899d0a.ctex"
+uid="uid://cf6trcy2ibgmc"
+path="res://.godot/imported/Take Hit - white silhouette.png-b9e3ac4786418b5cd6a4798bbaae8fee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Medieval Warrior Pack 2/Sprites/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-6cdb3c2dabd05564809f7dca9b899d0a.ctex"]
+source_file="res://Sprites/Take Hit - white silhouette.png"
+dest_files=["res://.godot/imported/Take Hit - white silhouette.png-b9e3ac4786418b5cd6a4798bbaae8fee.ctex"]
 
 [params]
 

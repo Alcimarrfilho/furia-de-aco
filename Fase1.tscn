@@ -196,3 +196,5 @@ scale = Vector2(1.7, 1.7)
 
 [connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
+
+[editable path="cavaleiro"]

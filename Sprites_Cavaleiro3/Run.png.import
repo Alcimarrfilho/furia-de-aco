@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm4ueqogaqc58"
-path="res://.godot/imported/Idle.png-9f2b39373b8986e26c51070d704c967a.ctex"
+uid="uid://b3evxydmjmwq2"
+path="res://.godot/imported/Run.png-b67d2383a33254dc19cf2c53acfd06c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Medieval Warrior Pack 2/Sprites/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-9f2b39373b8986e26c51070d704c967a.ctex"]
+source_file="res://Sprites_Cavaleiro3/Run.png"
+dest_files=["res://.godot/imported/Run.png-b67d2383a33254dc19cf2c53acfd06c9.ctex"]
 
 [params]
 
