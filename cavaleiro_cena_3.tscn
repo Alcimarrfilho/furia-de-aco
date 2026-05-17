@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2du1d")
 }],
-"loop": true,
+"loop": false,
 "name": &"atacar",
 "speed": 5.0
 }, {
@@ -166,7 +166,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5owi8")
 }],
-"loop": true,
+"loop": false,
 "name": &"defender",
 "speed": 5.0
 }, {
@@ -191,24 +191,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fplib")
 }],
-"loop": true,
+"loop": false,
 "name": &"pular",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdsla"]
-size = Vector2(91, 128)
+size = Vector2(232.35281, 34.256058)
 
 [node name="cavaleiro-cena3" type="CharacterBody2D" unique_id=867712019]
+scale = Vector2(1.7, 1.7)
 script = ExtResource("1_wv4mm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=64682415]
+position = Vector2(59.999996, -59.999996)
 scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_1ud6w")
-animation = &"pular"
+animation = &"andar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105054635]
-position = Vector2(-36.5, 74)
+scale = Vector2(1.7000005, 1.7000005)
 shape = SubResource("RectangleShape2D_wdsla")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=939073973]

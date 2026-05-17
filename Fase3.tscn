@@ -7,50 +7,71 @@
 size = Vector2(138.5, 1043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mv3b"]
-size = Vector2(1487.5, 182)
+size = Vector2(1654.75, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3lt4"]
-size = Vector2(2322, 185)
+size = Vector2(2660.5, 207.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g4g3"]
-size = Vector2(548, 48)
+size = Vector2(207.9584, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0y51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ym0"]
+size = Vector2(658.5, 82)
 
 [node name="Node2D" type="Node2D" unique_id=188445151]
 
 [node name="foto-cenario3" type="Sprite2D" parent="." unique_id=1477947419]
-position = Vector2(1997.0938, 45.999992)
-scale = Vector2(3.887672, 1.8618491)
+position = Vector2(3501.5, -146)
+scale = Vector2(4.4216504, 2.2699256)
 texture = ExtResource("1_ifecm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=493301279]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1288464354]
-position = Vector2(-1191.25, 26.5)
+position = Vector2(-121, -77)
 shape = SubResource("RectangleShape2D_ifecm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=720484719]
-position = Vector2(-496.75, 484)
+position = Vector2(632.625, 395)
 shape = SubResource("RectangleShape2D_6mv3b")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2086992476]
-position = Vector2(1965, 485.5)
+position = Vector2(3474.75, 412.75)
 shape = SubResource("RectangleShape2D_j3lt4")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1113766965]
-position = Vector2(528, 584)
-shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="cavaleiro-cena3" parent="." unique_id=867712019 instance=ExtResource("2_6mv3b")]
 
 [node name="AnimatedSprite2D" parent="cavaleiro-cena3" index="0" unique_id=64682415]
-position = Vector2(-775.99994, -140)
-scale = Vector2(1.9, 1.9)
+animation = &"defender"
 
 [node name="CollisionShape2D" parent="cavaleiro-cena3" index="1" unique_id=2105054635]
-position = Vector2(-795, -82)
+position = Vector2(1080, 318.2353)
+scale = Vector2(1.7000006, 1.7000006)
+shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="Camera2D" parent="cavaleiro-cena3" index="2" unique_id=939073973]
-position = Vector2(-75, -161)
-zoom = Vector2(0.5, 0.5)
+position = Vector2(726.47064, -203.5294)
+zoom = Vector2(0.4, 0.4)
+
+[node name="pontoretorno1" type="Marker2D" parent="." unique_id=1287756590]
+position = Vector2(1301, -745)
+
+[node name="pontoretorno2" type="Marker2D" parent="." unique_id=905430634]
+position = Vector2(3633, -429)
+
+[node name="sensorburaco1" type="Area2D" parent="." unique_id=1398197334]
+position = Vector2(1791, 422)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco1" unique_id=689119910]
+shape = SubResource("RectangleShape2D_v0y51")
+
+[node name="sensorburaco2" type="Area2D" parent="." unique_id=825158572]
+position = Vector2(5107, 425)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco2" unique_id=1353012468]
+position = Vector2(29.75, 111)
+shape = SubResource("RectangleShape2D_m4ym0")
 
 [editable path="cavaleiro-cena3"]
