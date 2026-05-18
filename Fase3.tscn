@@ -1,26 +1,44 @@
 [gd_scene format=3 uid="uid://dopv4appvop35"]
 
 [ext_resource type="Texture2D" uid="uid://ukbgqb7v0gmv" path="res://ChatGPT Image 12 de mai. de 2026, 17_32_14.png" id="1_ifecm"]
+[ext_resource type="Script" uid="uid://x6bvefcixf27" path="res://fase_3.gd" id="1_j3lt4"]
 [ext_resource type="PackedScene" uid="uid://c6s7kmk05saix" path="res://cavaleiro_cena_3.tscn" id="2_6mv3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifecm"]
 size = Vector2(138.5, 1043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mv3b"]
-size = Vector2(1654.75, 172)
+size = Vector2(1714.75, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3lt4"]
-size = Vector2(2660.5, 207.5)
+size = Vector2(2660.5, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al0bo"]
+size = Vector2(1287, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ksly"]
+size = Vector2(1438, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0hv0"]
+size = Vector2(888.75, 101.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lufhu"]
+size = Vector2(1732.5, 91.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0n2q"]
+size = Vector2(106, 1433)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g4g3"]
-size = Vector2(207.9584, 20)
+size = Vector2(342.90646, 35.294106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0y51"]
+size = Vector2(608, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ym0"]
 size = Vector2(658.5, 82)
 
 [node name="Node2D" type="Node2D" unique_id=188445151]
+script = ExtResource("1_j3lt4")
 
 [node name="foto-cenario3" type="Sprite2D" parent="." unique_id=1477947419]
 position = Vector2(3501.5, -146)
@@ -34,12 +52,32 @@ position = Vector2(-121, -77)
 shape = SubResource("RectangleShape2D_ifecm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=720484719]
-position = Vector2(632.625, 395)
+position = Vector2(662.625, 391)
 shape = SubResource("RectangleShape2D_6mv3b")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2086992476]
-position = Vector2(3474.75, 412.75)
+position = Vector2(3474.75, 357.5)
 shape = SubResource("RectangleShape2D_j3lt4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=563263415]
+position = Vector2(1773.5, -267)
+shape = SubResource("RectangleShape2D_al0bo")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=238929388]
+position = Vector2(4111, 27.5)
+shape = SubResource("RectangleShape2D_3ksly")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=470319870]
+position = Vector2(6429.375, 20.25)
+shape = SubResource("RectangleShape2D_a0hv0")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1318358488]
+position = Vector2(6336.25, 347.25)
+shape = SubResource("RectangleShape2D_lufhu")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=134673943]
+position = Vector2(7148, -420.5)
+shape = SubResource("RectangleShape2D_c0n2q")
 
 [node name="cavaleiro-cena3" parent="." unique_id=867712019 instance=ExtResource("2_6mv3b")]
 
@@ -47,8 +85,7 @@ shape = SubResource("RectangleShape2D_j3lt4")
 animation = &"defender"
 
 [node name="CollisionShape2D" parent="cavaleiro-cena3" index="1" unique_id=2105054635]
-position = Vector2(1080, 318.2353)
-scale = Vector2(1.7000006, 1.7000006)
+position = Vector2(556.1766, 10.588237)
 shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="Camera2D" parent="cavaleiro-cena3" index="2" unique_id=939073973]
@@ -62,9 +99,10 @@ position = Vector2(1301, -745)
 position = Vector2(3633, -429)
 
 [node name="sensorburaco1" type="Area2D" parent="." unique_id=1398197334]
-position = Vector2(1791, 422)
+position = Vector2(1783, 365)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco1" unique_id=689119910]
+position = Vector2(45, 166.25)
 shape = SubResource("RectangleShape2D_v0y51")
 
 [node name="sensorburaco2" type="Area2D" parent="." unique_id=825158572]

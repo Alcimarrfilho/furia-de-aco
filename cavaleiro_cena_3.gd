@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
-# fisica do jogo
-const VELOCIDADE = 450.0 # Define a distância do pulo 
+const VELOCIDADE = 450.0 
 const VELOCIDADE_DEFESA = 300.0 
-const FORCA_PULO = -515.0 
+const FORCA_PULO = -550.0 
 var gravidade = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim = $AnimatedSprite2D
 
 var estado = "normal" 
+var vidas = 3 # Sistema de vidas adicionado!
 
 func _physics_process(delta):
-	# 1. Aplica a Gravidade
+	# Aplica a Gravidade
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
@@ -27,7 +27,6 @@ func _physics_process(delta):
 		
 	elif Input.is_action_just_released("atacar") and estado == "defendendo":
 		estado = "normal"
-
 
 	# Movimentação 
 	if estado == "normal" or estado == "defendendo":
@@ -60,7 +59,6 @@ func _physics_process(delta):
 
 	# Executa a física
 	move_and_slide()
-
 
 func _on_animated_sprite_2d_animation_finished():
 	if anim.animation == "atacar":

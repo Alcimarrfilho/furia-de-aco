@@ -197,7 +197,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdsla"]
-size = Vector2(232.35281, 34.256058)
+size = Vector2(47.750835, 75.08648)
 
 [node name="cavaleiro-cena3" type="CharacterBody2D" unique_id=867712019]
 scale = Vector2(1.7, 1.7)
@@ -210,7 +210,8 @@ sprite_frames = SubResource("SpriteFrames_1ud6w")
 animation = &"andar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105054635]
-scale = Vector2(1.7000005, 1.7000005)
+position = Vector2(2.3529506, 0.8823509)
+scale = Vector2(1.7000006, 1.7000006)
 shape = SubResource("RectangleShape2D_wdsla")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=939073973]
