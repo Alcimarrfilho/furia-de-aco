@@ -1,21 +1,26 @@
 extends CharacterBody2D
 
+# --- FÍSICA AJUSTADA ---
 const VELOCIDADE = 450.0 
 const VELOCIDADE_DEFESA = 300.0 
 const FORCA_PULO = -550.0 
 var gravidade = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Ajuste visual via código para alinhar a arte com a colisão
+const OFFSET_ART_DIREITA = 50.0  
+const OFFSET_ART_ESQUERDA = -45.0 
+
 @onready var anim = $AnimatedSprite2D
 
 var estado = "normal" 
-var vidas = 3 # Sistema de vidas adicionado!
+var vidas = 3 
 
 func _physics_process(delta):
-	# Aplica a Gravidade
+	# 1. Aplica a Gravidade
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
-	# Lógica do botão F (Ação de Atacar/Defender)
+	# 2. Lógica do botão F (Ação de Atacar/Defender)
 	if Input.is_action_just_pressed("atacar") and is_on_floor():
 		estado = "atacando"
 		anim.play("atacar")
@@ -28,7 +33,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("atacar") and estado == "defendendo":
 		estado = "normal"
 
-	# Movimentação 
+	# 3. Movimentação 
 	if estado == "normal" or estado == "defendendo":
 		var direcao = Input.get_axis("ui_left", "ui_right")
 		
@@ -39,7 +44,14 @@ func _physics_process(delta):
 		# Andar para os lados
 		if direcao:
 			velocity.x = direcao * velocidade_atual
-			anim.flip_h = (direcao == -1) 
+			
+			# --- A LÓGICA DE PUXAR O DESENHO VOLTOU AQUI! ---
+			if direcao == -1: # Virou para a Esquerda
+				anim.flip_h = true
+				anim.position.x = OFFSET_ART_ESQUERDA
+			elif direcao == 1: # Virou para a Direita
+				anim.flip_h = false
+				anim.position.x = OFFSET_ART_DIREITA
 			
 			if is_on_floor() and estado == "normal":
 				anim.play("andar")
@@ -57,9 +69,10 @@ func _physics_process(delta):
 		if not is_on_floor() and estado == "normal":
 			anim.play("pular")
 
-	# Executa a física
+	# 4. Executa a física
 	move_and_slide()
 
+# --- CONEXÃO DO ANIMATED SPRITE ---
 func _on_animated_sprite_2d_animation_finished():
 	if anim.animation == "atacar":
 		if Input.is_action_pressed("atacar"):

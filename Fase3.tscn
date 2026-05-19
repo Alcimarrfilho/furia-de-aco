@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ukbgqb7v0gmv" path="res://ChatGPT Image 12 de mai. de 2026, 17_32_14.png" id="1_ifecm"]
 [ext_resource type="Script" uid="uid://x6bvefcixf27" path="res://fase_3.gd" id="1_j3lt4"]
 [ext_resource type="PackedScene" uid="uid://c6s7kmk05saix" path="res://cavaleiro_cena_3.tscn" id="2_6mv3b"]
+[ext_resource type="Texture2D" uid="uid://mv8eswrst76x" path="res://MoedaSprites/coin1.png" id="4_1g4g3"]
+[ext_resource type="Texture2D" uid="uid://vilf4o1302sv" path="res://MoedaSprites/coin4.png" id="5_v0y51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifecm"]
 size = Vector2(138.5, 1043)
@@ -29,16 +31,17 @@ size = Vector2(1732.5, 91.5)
 size = Vector2(106, 1433)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g4g3"]
-size = Vector2(342.90646, 35.294106)
+size = Vector2(49.48095, 73.01035)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0y51"]
-size = Vector2(608, 63.5)
+size = Vector2(4715, 177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ym0"]
 size = Vector2(658.5, 82)
 
 [node name="Node2D" type="Node2D" unique_id=188445151]
 script = ExtResource("1_j3lt4")
+metadata/_edit_vertical_guides_ = [-461.0]
 
 [node name="foto-cenario3" type="Sprite2D" parent="." unique_id=1477947419]
 position = Vector2(3501.5, -146)
@@ -82,10 +85,11 @@ shape = SubResource("RectangleShape2D_c0n2q")
 [node name="cavaleiro-cena3" parent="." unique_id=867712019 instance=ExtResource("2_6mv3b")]
 
 [node name="AnimatedSprite2D" parent="cavaleiro-cena3" index="0" unique_id=64682415]
+position = Vector2(65.29411, -59.411762)
 animation = &"defender"
 
 [node name="CollisionShape2D" parent="cavaleiro-cena3" index="1" unique_id=2105054635]
-position = Vector2(556.1766, 10.588237)
+position = Vector2(15.58824, 3.823532)
 shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="Camera2D" parent="cavaleiro-cena3" index="2" unique_id=939073973]
@@ -99,10 +103,10 @@ position = Vector2(1301, -745)
 position = Vector2(3633, -429)
 
 [node name="sensorburaco1" type="Area2D" parent="." unique_id=1398197334]
-position = Vector2(1783, 365)
+position = Vector2(1841, 419)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco1" unique_id=689119910]
-position = Vector2(45, 166.25)
+position = Vector2(354.5, 204)
 shape = SubResource("RectangleShape2D_v0y51")
 
 [node name="sensorburaco2" type="Area2D" parent="." unique_id=825158572]
@@ -111,5 +115,90 @@ position = Vector2(5107, 425)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco2" unique_id=1353012468]
 position = Vector2(29.75, 111)
 shape = SubResource("RectangleShape2D_m4ym0")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1756789682]
+
+[node name="IconeMoeda" type="Sprite2D" parent="HUD" unique_id=2027694191]
+texture = ExtResource("4_1g4g3")
+
+[node name="TextoMoedas" type="Label" parent="HUD" unique_id=1419344479]
+anchors_preset = -1
+anchor_left = 0.165
+anchor_top = -1.4740001
+anchor_right = 0.165
+anchor_bottom = -1.4740001
+offset_left = -342.08002
+offset_top = -154.84796
+offset_right = 186.92
+offset_bottom = 155.15204
+text = "Moedas:"
+
+[node name="Coin4" type="Sprite2D" parent="HUD" unique_id=1951587342]
+position = Vector2(657, -87)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin5" type="Sprite2D" parent="HUD" unique_id=1818803200]
+position = Vector2(834, -87)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin6" type="Sprite2D" parent="HUD" unique_id=1336198285]
+position = Vector2(1039, -87)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin7" type="Sprite2D" parent="HUD" unique_id=382048340]
+position = Vector2(1349, -406.99997)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin8" type="Sprite2D" parent="HUD" unique_id=736901716]
+position = Vector2(1575, -407)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin9" type="Sprite2D" parent="HUD" unique_id=1309721903]
+position = Vector2(1789, -407)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin10" type="Sprite2D" parent="HUD" unique_id=23811856]
+position = Vector2(2034, -407)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin11" type="Sprite2D" parent="HUD" unique_id=676823529]
+position = Vector2(3584, -117)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin12" type="Sprite2D" parent="HUD" unique_id=788647735]
+position = Vector2(2722, 226)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin13" type="Sprite2D" parent="HUD" unique_id=2041391942]
+position = Vector2(2931, 226)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin14" type="Sprite2D" parent="HUD" unique_id=1099816081]
+position = Vector2(3770, -117)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin15" type="Sprite2D" parent="HUD" unique_id=243849047]
+position = Vector2(3975, -117)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[node name="Coin16" type="Sprite2D" parent="HUD" unique_id=1299036573]
+position = Vector2(4178, -117)
+scale = Vector2(7, 7)
+texture = ExtResource("5_v0y51")
+
+[connection signal="body_entered" from="sensorburaco1" to="." method="_on_sensorburaco_1_body_entered"]
+[connection signal="body_entered" from="sensorburaco2" to="." method="_on_sensorburaco_2_body_entered"]
 
 [editable path="cavaleiro-cena3"]
