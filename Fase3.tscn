@@ -30,6 +30,9 @@ size = Vector2(1732.5, 91.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0n2q"]
 size = Vector2(106, 1433)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lccmf"]
+size = Vector2(1014, 89)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g4g3"]
 size = Vector2(49.48095, 73.01035)
 
@@ -81,6 +84,10 @@ shape = SubResource("RectangleShape2D_lufhu")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=134673943]
 position = Vector2(7148, -420.5)
 shape = SubResource("RectangleShape2D_c0n2q")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=434459519]
+position = Vector2(957, 28)
+shape = SubResource("RectangleShape2D_lccmf")
 
 [node name="cavaleiro-cena3" parent="." unique_id=867712019 instance=ExtResource("2_6mv3b")]
 

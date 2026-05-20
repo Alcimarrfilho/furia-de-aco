@@ -3,7 +3,7 @@ extends CharacterBody2D
 # --- FÍSICA AJUSTADA ---
 const VELOCIDADE = 450.0 
 const VELOCIDADE_DEFESA = 300.0 
-const FORCA_PULO = -550.0 
+const FORCA_PULO = -750.0 
 var gravidade = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Ajuste visual via código para alinhar a arte com a colisão
