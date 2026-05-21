@@ -1,32 +1,36 @@
 extends Node2D
 
+@onready var ponto1 = $pontoretorno1
+@onready var ponto2 = $pontoretorno2
+@onready var hud = $HUD
 
-@onready var ponto_retorno = $pontoretorno1
+# CONEXÕES DOS SENSORES 
 
-# função vai cuidar do SENSOR 1
-func _on_sensorburaco_1_body_entered(body):
-	_processar_queda_no_buraco(body)
+func _on_sensorburaco1_body_entered(body):
+	print("DEBUG: Algo entrou no BURACO 1! Nome: ", body.name)
+	_processar_queda_no_buraco(body, ponto1)
 
-# função vai cuidar do SENSOR 2 (Caso você crie o segundo depois)
-func _on_sensorburaco_2_body_entered(body):
-	_processar_queda_no_buraco(body)
+func _on_sensorburaco2_body_entered(body):
+	print("DEBUG: Algo entrou no BURACO 2! Nome: ", body.name)
+	_processar_queda_no_buraco(body, ponto2)
 
 
-# FUNÇÃO QUE FAZ O TELETRANSPORTE 
-func _processar_queda_no_buraco(body):
-	print("DEBUG: Algo caiu no buraco! Nome do objeto: ", body.name)
-	
-	# Identifica o seu cavaleiro independente do nome dele
-	if "cavaleiro" in body.name or body.name == "CharacterBody2D" or body.is_in_group("jogador"):
-		
+# LÓGICA CENTRAL DE QUEDA
+
+func _processar_queda_no_buraco(body, ponto_de_destino):
+	if "vidas" in body:
 		body.vidas -= 1
-		print("Vidas restantes: ", body.vidas)
+		print("Vidas restantes do Cavaleiro: ", body.vidas)
+		
+		# Força o HUD a atualizar se ele existir
+		if hud and hud.has_method("atualizar_coracoes"):
+			hud.atualizar_coracoes(body.vidas)
 		
 		if body.vidas > 0:
-			# O call_deferred força o Godot 4 a aceitar o teletransporte sem travar a física
-			body.call_deferred("set_global_position", ponto_retorno.global_position)
-			body.velocity = Vector2.ZERO # Zera a velocidade para ele não brotar caindo rápido
+			# Teletransporte seguro
+			body.call_deferred("set_global_position", ponto_de_destino.global_position)
+			body.velocity = Vector2.ZERO 
 		else:
-			print("Game Over! Reiniciando a fase...")
-			body.vidas = 3
+			print("GAME OVER! Reiniciando...")
+			Global.moedas = 0
 			get_tree().reload_current_scene()

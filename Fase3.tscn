@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://x6bvefcixf27" path="res://fase_3.gd" id="1_j3lt4"]
 [ext_resource type="PackedScene" uid="uid://c6s7kmk05saix" path="res://cavaleiro_cena_3.tscn" id="2_6mv3b"]
 [ext_resource type="Texture2D" uid="uid://mv8eswrst76x" path="res://MoedaSprites/coin1.png" id="4_1g4g3"]
+[ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="4_al0bo"]
 [ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="5_m4ym0"]
 [ext_resource type="Texture2D" uid="uid://vilf4o1302sv" path="res://MoedaSprites/coin4.png" id="5_v0y51"]
 
@@ -17,7 +18,7 @@ size = Vector2(1714.75, 180)
 size = Vector2(2660.5, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al0bo"]
-size = Vector2(1287, 118)
+size = Vector2(1189, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ksly"]
 size = Vector2(1362, 115)
@@ -67,7 +68,7 @@ position = Vector2(3474.75, 357.5)
 shape = SubResource("RectangleShape2D_j3lt4")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=563263415]
-position = Vector2(1773.5, -267)
+position = Vector2(1822.5, -300)
 shape = SubResource("RectangleShape2D_al0bo")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=238929388]
@@ -101,7 +102,7 @@ position = Vector2(15.58824, 3.823532)
 shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="Camera2D" parent="cavaleiro-cena3" index="2" unique_id=939073973]
-position = Vector2(726.47064, -203.5294)
+position = Vector2(739.41174, -190.58823)
 zoom = Vector2(0.4, 0.4)
 
 [node name="pontoretorno1" type="Marker2D" parent="." unique_id=1287756590]
@@ -125,6 +126,8 @@ position = Vector2(29.75, 111)
 shape = SubResource("RectangleShape2D_m4ym0")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1756789682]
+layer = 10
+script = ExtResource("4_al0bo")
 
 [node name="IconeMoeda" type="Sprite2D" parent="HUD" unique_id=2027694191]
 texture = ExtResource("4_1g4g3")
@@ -139,6 +142,7 @@ offset_left = -352.47205
 offset_top = -30.575928
 offset_right = 176.52795
 offset_bottom = 11.424072
+theme_override_font_sizes/font_size = 48
 text = "Moedas:"
 
 [node name="coracao1" type="Sprite2D" parent="HUD" unique_id=1147016245]
