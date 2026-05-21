@@ -1,16 +1,10 @@
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "cavaleiro":
-		get_tree().reload_current_scene()
+		
+		# O TRUQUE: A gente tira a vida direto da variável, ignorando a função que estava falhando!
+		Global.vidas -= 1
+		
+		# Recarrega a fase com segurança sem dar aquele erro vermelho
+		get_tree().call_deferred("reload_current_scene")
