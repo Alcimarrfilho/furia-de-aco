@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://55uc0mo7ep06" path="res://hud_fase_2.gd" id="7_smwdg"]
 [ext_resource type="Script" uid="uid://bmlph7hqj3hkp" path="res://meu_inimigo.gd" id="8_j7ljf"]
 [ext_resource type="Texture2D" uid="uid://dgok2fwnm62il" path="res://YellowNinja/yellowNinja - Death.png" id="9_j7ljf"]
+[ext_resource type="Script" uid="uid://crkkb00l5l386" path="res://mini_chefe_fase2.gd" id="11_gvw8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv3c2"]
 size = Vector2(748.5, 45)
@@ -37,7 +38,7 @@ radius = 31.0
 height = 68.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smwdg"]
-size = Vector2(46, 64)
+size = Vector2(65, 64)
 
 [sub_resource type="Animation" id="Animation_smwdg"]
 length = 0.001
@@ -243,10 +244,39 @@ target_position = Vector2(-1, 66)
 [node name="Hurtbox" type="Area2D" parent="MeuInimigo" unique_id=856516840]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeuInimigo/Hurtbox" unique_id=210599768]
-position = Vector2(13, 22)
+position = Vector2(7, 22)
 shape = SubResource("RectangleShape2D_smwdg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeuInimigo" unique_id=2115165288]
+libraries/ = SubResource("AnimationLibrary_7ui32")
+
+[node name="MiniChefeFase2" type="CharacterBody2D" parent="." unique_id=765925239]
+position = Vector2(1344, 469)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("11_gvw8t")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MiniChefeFase2" unique_id=1771259313]
+position = Vector2(-0.7641558, 1.0000057)
+scale = Vector2(1.3088148, 1.5624999)
+texture = ExtResource("9_j7ljf")
+hframes = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniChefeFase2" unique_id=301380527]
+position = Vector2(10, 23)
+shape = SubResource("CapsuleShape2D_qgfrg")
+
+[node name="RayCast2D" type="RayCast2D" parent="MiniChefeFase2" unique_id=11355792]
+position = Vector2(37, 38)
+target_position = Vector2(-1, 66)
+
+[node name="Hurtbox" type="Area2D" parent="MiniChefeFase2" unique_id=2030601426]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniChefeFase2/Hurtbox" unique_id=1118981651]
+position = Vector2(7, 22)
+shape = SubResource("RectangleShape2D_smwdg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MiniChefeFase2" unique_id=1921849337]
 libraries/ = SubResource("AnimationLibrary_7ui32")
 
 [node name="MeuInimigo2" type="CharacterBody2D" parent="." unique_id=1270396681]
@@ -271,7 +301,7 @@ target_position = Vector2(-1, 66)
 [node name="Hurtbox" type="Area2D" parent="MeuInimigo2" unique_id=1236192189]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeuInimigo2/Hurtbox" unique_id=1246310872]
-position = Vector2(13, 22)
+position = Vector2(9.5, 22)
 shape = SubResource("RectangleShape2D_smwdg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeuInimigo2" unique_id=1093724542]
@@ -280,6 +310,7 @@ libraries/ = SubResource("AnimationLibrary_7ui32")
 [connection signal="body_entered" from="Buraco1" to="Buraco1" method="_on_body_entered"]
 [connection signal="body_entered" from="Buraco2" to="Buraco2" method="_on_body_entered"]
 [connection signal="body_entered" from="MeuInimigo/Hurtbox" to="MeuInimigo" method="_on_area_dano_body_entered"]
+[connection signal="body_entered" from="MiniChefeFase2/Hurtbox" to="MiniChefeFase2" method="_on_area_dano_body_entered"]
 [connection signal="body_entered" from="MeuInimigo2/Hurtbox" to="MeuInimigo2" method="_on_area_dano_body_entered"]
 
 [editable path="Moeda"]

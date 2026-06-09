@@ -28,15 +28,16 @@ func _physics_process(delta: float) -> void:
 		$RayCast2D.position.x *= -1
 
 func _on_area_dano_body_entered(body: Node2D) -> void:
-	# Se ele já estiver morto, não dá mais dano no jogador
+	
 	if esta_morto:
 		return
 		
 	if body.name == "cavaleiro":
-		# Em vez de mexer no Global, ele manda o Cavaleiro se virar com o dano
+		
 		if body.has_method("tomar_dano"):
 			body.tomar_dano()
-
+		else:
+			print("❌ ERRO: O inimigo achou o cavaleiro, mas não achou a função tomar_dano()!")
 # ATUALIZAÇÃO: A morte dramática!
 func tomar_dano():
 	# Evita que ele tome dano duas vezes seguidas

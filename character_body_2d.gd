@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # ESTADOS DO ATAQUE
 var attacking = false
 var attack_cooldown = 0.0
+var pode_tomar_dano = true
 
 # --- NOVIDADES ---
 # Memoriza a direção que ele olha: 1 para direita, -1 para esquerda. Começa pra Direita.
@@ -93,3 +94,29 @@ func _physics_process(delta: float) -> void:
 			if sprite.animation != "idle":
 				sprite.animation = "idle"
 				sprite.play()
+
+func tomar_dano():
+	
+	# Só toma o dano se o escudo estiver desligado
+	if pode_tomar_dano == true:
+		
+		# 1. Tira a vida lá do Global (a HUD vai atualizar na hora)
+		Global.vidas -= 1
+		
+		# 2. SE A VIDA ZERAR: Morreu de vez! Recarrega a fase.
+		if Global.vidas <= 0:
+			get_tree().call_deferred("reload_current_scene")
+			# Reseta a vida para o próximo play (opcional, dependendo de como você faz o Game Over)
+			Global.vidas = 3 
+			return # Para a função aqui para ele não tentar ficar vermelho depois de morto
+		
+		# 3. SE AINDA TEM VIDA: Liga o escudo e pisca vermelho
+		pode_tomar_dano = false 
+		modulate = Color(1, 0, 0) # Fica vermelhão
+		
+		# Espera 1 segundo exato (tempo do escudo)
+		await get_tree().create_timer(1.0).timeout
+		
+		# O tempo acabou: volta a cor ao normal e desliga o escudo
+		modulate = Color(1, 1, 1) 
+		pode_tomar_dano = true
