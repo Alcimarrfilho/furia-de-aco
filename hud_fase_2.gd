@@ -1,22 +1,11 @@
 extends CanvasLayer
 
-func _ready() -> void:
-	# Roda sempre que a cena começa ou recomeça
-	atualizar_coracoes()
-
-func atualizar_coracoes():
-	# Pega o número de vidas salvo no seu script Global
-	var vidas_restantes = Global.vidas 
+# A função _process roda o tempo todo, atualizando a tela instantaneamente
+func _process(delta):
+	# 1. Atualiza os corações (exatamente com a mesma inteligência da Fase 1)
+	$Coracao1.visible = Global.vidas >= 1
+	$Coracao2.visible = Global.vidas >= 2
+	$Coracao3.visible = Global.vidas >= 3
 	
-	# Lógica para esconder os corações de acordo com a vida
-	if vidas_restantes == 2:
-		$Coracao3.hide() 
-		
-	elif vidas_restantes == 1:
-		$Coracao3.hide()
-		$Coracao2.hide()
-		
-	elif vidas_restantes <= 0:
-		$Coracao3.hide()
-		$Coracao2.hide()
-		$Coracao1.hide()
+	# 2. Atualiza o texto do Contador de Moedas
+	$ContadorMoedas.text = "Moedas: " + str(Global.moedas)

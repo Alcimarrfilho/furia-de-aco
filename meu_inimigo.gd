@@ -33,8 +33,9 @@ func _on_area_dano_body_entered(body: Node2D) -> void:
 		return
 		
 	if body.name == "cavaleiro":
-		if Global.has_method("perder_vida"):
-			Global.perder_vida()
+		# Em vez de mexer no Global, ele manda o Cavaleiro se virar com o dano
+		if body.has_method("tomar_dano"):
+			body.tomar_dano()
 
 # ATUALIZAÇÃO: A morte dramática!
 func tomar_dano():

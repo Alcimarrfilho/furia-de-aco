@@ -174,7 +174,7 @@ position = Vector2(1398, 575.5)
 shape = SubResource("RectangleShape2D_ltj3d")
 
 [node name="Buraco1" type="Area2D" parent="." unique_id=1586450140]
-position = Vector2(-38, 554)
+position = Vector2(-36, 554)
 script = ExtResource("5_qle6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buraco1" unique_id=1097421161]
