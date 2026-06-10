@@ -5,9 +5,9 @@ extends CanvasLayer
 @onready var coracao3 = $Coracao3
 @onready var texto_moedas = $TextoMoedas
 
+@onready var tela_derrota = $"../TelaDerrota" 
+
 func _process(_delta):
-	# O HUD pergunta ao script Global quantas moedas temos e escreve no ecrã
-	# Isso faz o número mudar assim que pegas numa moeda
 	if texto_moedas:
 		texto_moedas.text = str(Global.moedas)
 
@@ -29,3 +29,7 @@ func atualizar_coracoes(vidas_atuais):
 		coracao1.visible = false
 		coracao2.visible = false
 		coracao3.visible = false
+		
+		if tela_derrota:
+			tela_derrota.visible = true    
+			get_tree().paused = true       

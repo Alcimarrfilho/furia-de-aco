@@ -6,10 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://d1u2g3vh0gsv3" path="res://inimigo.tscn" id="7_6h1au"]
 [ext_resource type="Script" uid="uid://cs3i8macp4tri" path="res://hud.gd" id="8_pyyah"]
 [ext_resource type="Texture2D" uid="uid://c4jkn1guqfewx" path="res://Royal Heart.png" id="9_pyyah"]
+[ext_resource type="PackedScene" uid="uid://bamupccaf8tj4" path="res://portal.tscn" id="9_spkfo"]
+[ext_resource type="PackedScene" uid="uid://cb3a64cy5r4ie" path="res://tela_vitoria.tscn" id="11_7kcub"]
 [ext_resource type="PackedScene" uid="uid://bi3in0sd00vl4" path="res://moeda.tscn" id="11_spkfo"]
 [ext_resource type="Script" uid="uid://xao33lit3wvi" path="res://label.gd" id="12_7kcub"]
+[ext_resource type="PackedScene" uid="uid://f5dhfpicpvpf" path="res://tela_aviso.tscn" id="12_tifhp"]
+[ext_resource type="Script" uid="uid://cjai7q6287blf" path="res://tela_derrota.gd" id="13_f5tht"]
 [ext_resource type="Script" uid="uid://ckx6rrkei5cl3" path="res://color_rect.gd" id="13_tifhp"]
-[ext_resource type="Script" uid="uid://bbxptppfjnryu" path="res://portal.gd" id="14_f5tht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
 size = Vector2(1815, 50)
@@ -29,10 +32,6 @@ size = Vector2(3359.5, 14)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsegr"]
 atlas = ExtResource("9_pyyah")
 region = Rect2(0, 0, 19.413925, 21)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5tht"]
-radius = 35.0
-height = 350.0
 
 [node name="Node2D" type="Node2D" unique_id=290625631]
 
@@ -147,6 +146,7 @@ text = "Moedas: 0"
 script = ExtResource("12_7kcub")
 
 [node name="ColorRect" type="ColorRect" parent="HUD2" unique_id=1649076977]
+visible = false
 offset_left = -5.0
 offset_top = -23.0
 offset_right = 1441.0
@@ -155,6 +155,7 @@ color = Color(0, 0, 0, 0.6627451)
 script = ExtResource("13_tifhp")
 
 [node name="Label" type="Label" parent="HUD2/ColorRect" unique_id=508050479]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,19 +183,49 @@ COMANDOS DO JOGO:
 • tecla F: Atacar"
 autowrap_mode = 2
 
-[node name="Portal" type="Area2D" parent="." unique_id=27900381]
-script = ExtResource("14_f5tht")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=1961361645]
-position = Vector2(2224, 224)
-shape = SubResource("CapsuleShape2D_f5tht")
-debug_color = Color(0.35691342, 0.20459999, 0.62, 0.5921569)
+[node name="Portal" parent="." unique_id=1235330540 instance=ExtResource("9_spkfo")]
+process_mode = 3
+proxima_fase = "res://Fase2.tscn"
 
 [node name="Inimigo" parent="." unique_id=562675298 instance=ExtResource("7_6h1au")]
 position = Vector2(1910, 116.99999)
 scale = Vector2(1.7, 1.7)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1371380605]
+
+[node name="TelaVitoria" parent="CanvasLayer" unique_id=735300709 instance=ExtResource("11_7kcub")]
+
+[node name="TelaAviso" parent="CanvasLayer" unique_id=543896580 instance=ExtResource("12_tifhp")]
+visible = false
+
+[node name="TelaDerrota" type="Panel" parent="CanvasLayer" unique_id=173555697]
+process_mode = 3
+visible = false
+offset_right = 500.0
+offset_bottom = 100.0
+script = ExtResource("13_f5tht")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TelaDerrota" unique_id=1888335328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TelaDerrota/VBoxContainer" unique_id=1014778176]
+layout_mode = 2
+text = "Você foi derrotado! Os reféns ainda precisam de você"
+
+[node name="Button" type="Button" parent="CanvasLayer/TelaDerrota/VBoxContainer" unique_id=150473036]
+layout_mode = 2
+text = "Tentar Novamente"
+
 [connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
-[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoProximaFase" to="Portal" method="_on_botao_proxima_fase_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoMenuPrincipal" to="Portal" method="_on_botao_menu_principal_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoReiniciar" to="Portal" method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaDerrota/VBoxContainer/Button" to="CanvasLayer/TelaDerrota" method="_on_button_pressed"]
 
 [editable path="cavaleiro"]
+[editable path="CanvasLayer/TelaVitoria"]

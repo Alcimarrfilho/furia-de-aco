@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://55uc0mo7ep06" path="res://hud_fase_2.gd" id="7_smwdg"]
 [ext_resource type="Script" uid="uid://bmlph7hqj3hkp" path="res://meu_inimigo.gd" id="8_j7ljf"]
 [ext_resource type="Texture2D" uid="uid://dgok2fwnm62il" path="res://YellowNinja/yellowNinja - Death.png" id="9_j7ljf"]
+[ext_resource type="PackedScene" uid="uid://cb3a64cy5r4ie" path="res://tela_vitoria.tscn" id="11_7ui32"]
+[ext_resource type="PackedScene" uid="uid://bamupccaf8tj4" path="res://portal.tscn" id="12_3xhfl"]
+[ext_resource type="PackedScene" uid="uid://f5dhfpicpvpf" path="res://tela_aviso.tscn" id="12_xotkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv3c2"]
 size = Vector2(748.5, 45)
@@ -123,6 +126,10 @@ _data = {
 &"morte": SubResource("Animation_gvw8t")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xotkg"]
+radius = 40.5
+height = 320.0
+
 [node name="Node2D" type="Node2D" unique_id=1919700582]
 script = ExtResource("1_qgfrg")
 metadata/_edit_vertical_guides_ = [-149.0, -138.0, -138.0, -149.0]
@@ -136,12 +143,14 @@ texture = ExtResource("1_smwdg")
 position = Vector2(-180, 108)
 
 [node name="Chao" type="StaticBody2D" parent="." unique_id=1673247992]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao" unique_id=1352466876]
 position = Vector2(-517.75, 577)
 shape = SubResource("RectangleShape2D_dv3c2")
 
 [node name="Chao2" type="StaticBody2D" parent="." unique_id=1109205173]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao2" unique_id=992501710]
 position = Vector2(516, 582)
@@ -154,38 +163,48 @@ position = Vector2(85, 352)
 position = Vector2(-57, 352)
 
 [node name="PlataformaAerea1" type="StaticBody2D" parent="." unique_id=949188134]
+visible = false
 position = Vector2(-257, 423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaAerea1" unique_id=1917616562]
+visible = false
 position = Vector2(-23.5, 20.5)
 shape = SubResource("RectangleShape2D_2ivu1")
 
 [node name="PlataformaAerea2" type="StaticBody2D" parent="." unique_id=104504087]
+visible = false
 position = Vector2(811, 415)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaAerea2" unique_id=1346416548]
+visible = false
 position = Vector2(56, 28)
 shape = SubResource("RectangleShape2D_jnsp1")
 
 [node name="Chao3" type="StaticBody2D" parent="." unique_id=1785424994]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao3" unique_id=994814554]
+visible = false
 position = Vector2(1398, 575.5)
 shape = SubResource("RectangleShape2D_ltj3d")
 
 [node name="Buraco1" type="Area2D" parent="." unique_id=1586450140]
+visible = false
 position = Vector2(-36, 554)
 script = ExtResource("5_qle6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buraco1" unique_id=1097421161]
+visible = false
 position = Vector2(14.5, 22.5)
 shape = SubResource("RectangleShape2D_qgfrg")
 
 [node name="Buraco2" type="Area2D" parent="." unique_id=2114140442]
+visible = false
 position = Vector2(1052, 554)
 script = ExtResource("6_jnsp1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buraco2" unique_id=1155097467]
+visible = false
 position = Vector2(30.5, 36.25)
 shape = SubResource("RectangleShape2D_j7ljf")
 
@@ -193,28 +212,29 @@ shape = SubResource("RectangleShape2D_j7ljf")
 script = ExtResource("7_smwdg")
 
 [node name="ContadorMoedas" type="Label" parent="HUDFase2" unique_id=1513045419]
-offset_left = 132.0
-offset_top = 82.0
-offset_right = 497.0
-offset_bottom = 121.0
+offset_left = 4.0
+offset_top = 60.0
+offset_right = 369.0
+offset_bottom = 99.0
 text = "Moedas: 0"
 
 [node name="Coracao1" type="Sprite2D" parent="HUDFase2" unique_id=1340889926]
-position = Vector2(155, 44)
+position = Vector2(17, 42)
 texture = ExtResource("7_qgfrg")
 hframes = 3
 
 [node name="Coracao3" type="Sprite2D" parent="HUDFase2" unique_id=1116847300]
-position = Vector2(209, 45)
+position = Vector2(65, 42)
 texture = ExtResource("7_qgfrg")
 hframes = 3
 
 [node name="Coracao2" type="Sprite2D" parent="HUDFase2" unique_id=1890675186]
-position = Vector2(181, 45)
+position = Vector2(40, 42)
 texture = ExtResource("7_qgfrg")
 hframes = 3
 
 [node name="Label" type="Label" parent="." unique_id=1499853490]
+visible = false
 offset_left = -770.0
 offset_top = -39.0
 offset_right = -488.0
@@ -227,22 +247,27 @@ script = ExtResource("8_j7ljf")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MeuInimigo" unique_id=1513066453]
+visible = false
 position = Vector2(-0.7641558, 1.0000057)
 scale = Vector2(1.3088148, 1.5624999)
 texture = ExtResource("9_j7ljf")
 hframes = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeuInimigo" unique_id=1889412766]
+visible = false
 position = Vector2(10, 23)
 shape = SubResource("CapsuleShape2D_qgfrg")
 
 [node name="RayCast2D" type="RayCast2D" parent="MeuInimigo" unique_id=1482201108]
+visible = false
 position = Vector2(37, 38)
 target_position = Vector2(-1, 66)
 
 [node name="Hurtbox" type="Area2D" parent="MeuInimigo" unique_id=856516840]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeuInimigo/Hurtbox" unique_id=210599768]
+visible = false
 position = Vector2(13, 22)
 shape = SubResource("RectangleShape2D_smwdg")
 
@@ -255,31 +280,58 @@ script = ExtResource("8_j7ljf")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MeuInimigo2" unique_id=1900673253]
+visible = false
 position = Vector2(-0.7641558, 1.0000057)
 scale = Vector2(1.3088148, 1.5624999)
 texture = ExtResource("9_j7ljf")
 hframes = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeuInimigo2" unique_id=2079954580]
+visible = false
 position = Vector2(10, 23)
 shape = SubResource("CapsuleShape2D_qgfrg")
 
 [node name="RayCast2D" type="RayCast2D" parent="MeuInimigo2" unique_id=1749271104]
+visible = false
 position = Vector2(37, 38)
 target_position = Vector2(-1, 66)
 
 [node name="Hurtbox" type="Area2D" parent="MeuInimigo2" unique_id=1236192189]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeuInimigo2/Hurtbox" unique_id=1246310872]
+visible = false
 position = Vector2(13, 22)
 shape = SubResource("RectangleShape2D_smwdg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeuInimigo2" unique_id=1093724542]
 libraries/ = SubResource("AnimationLibrary_7ui32")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1914852984]
+
+[node name="TelaVitoria" parent="CanvasLayer" unique_id=735300709 instance=ExtResource("11_7ui32")]
+
+[node name="TelaAviso" parent="CanvasLayer" unique_id=543896580 instance=ExtResource("12_xotkg")]
+visible = false
+
+[node name="Portal" parent="." unique_id=1235330540 instance=ExtResource("12_3xhfl")]
+process_mode = 3
+position = Vector2(1501, 496)
+
+[node name="CollisionShape2D" parent="Portal" index="0" unique_id=1456158240]
+position = Vector2(26, -76)
+shape = SubResource("CapsuleShape2D_xotkg")
+
 [connection signal="body_entered" from="Buraco1" to="Buraco1" method="_on_body_entered"]
 [connection signal="body_entered" from="Buraco2" to="Buraco2" method="_on_body_entered"]
 [connection signal="body_entered" from="MeuInimigo/Hurtbox" to="MeuInimigo" method="_on_area_dano_body_entered"]
 [connection signal="body_entered" from="MeuInimigo2/Hurtbox" to="MeuInimigo2" method="_on_area_dano_body_entered"]
+[connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoProximaFase" to="Portal" method="_on_botao_proxima_fase_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoMenuPrincipal" to="Portal" method="_on_botao_menu_principal_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoReiniciar" to="Portal" method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaAviso/VBoxContainer/BotaoVoltar" to="Portal" method="_on_botao_voltar_pressed"]
 
 [editable path="Moeda"]
+[editable path="CanvasLayer/TelaVitoria"]
+[editable path="CanvasLayer/TelaAviso"]
+[editable path="Portal"]

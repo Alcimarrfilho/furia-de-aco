@@ -199,7 +199,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdsla"]
 size = Vector2(47.750835, 75.08648)
 
-[node name="cavaleiro-cena3" type="CharacterBody2D" unique_id=867712019 groups=["jogador"]]
+[node name="cavaleiro" type="CharacterBody2D" unique_id=867712019 groups=["jogador"]]
 scale = Vector2(1.7, 1.7)
 script = ExtResource("1_wv4mm")
 
