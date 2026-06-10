@@ -109,6 +109,10 @@ shape = SubResource("RectangleShape2D_1g4g3")
 [node name="Camera2D" parent="cavaleiro" index="2" unique_id=939073973]
 position = Vector2(739.41174, -190.58823)
 zoom = Vector2(0.4, 0.4)
+limit_left = 0
+limit_top = -900
+limit_right = 7400
+limit_bottom = 800
 
 [node name="pontoretorno1" type="Marker2D" parent="." unique_id=1287756590]
 visible = false

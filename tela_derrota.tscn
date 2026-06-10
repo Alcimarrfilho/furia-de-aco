@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c34aq3nu2oxoa"]
+
+[ext_resource type="Script" uid="uid://cjai7q6287blf" path="res://tela_derrota.gd" id="1_pm3wf"]
+
+[node name="TelaDerrota" type="Panel" unique_id=214148239]
+process_mode = 3
+visible = false
+offset_right = 500.0
+offset_bottom = 100.0
+script = ExtResource("1_pm3wf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=660469667]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1131801571]
+layout_mode = 2
+text = "Você foi derrotado! Os reféns ainda precisam de você"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1259691720]
+layout_mode = 2
+text = "Tentar Novamente"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

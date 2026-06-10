@@ -4,7 +4,7 @@ extends Area2D
 @export var ponto_de_retorno: Node2D
 
 # Pegamos a referência do HUD para atualizar os corações na tela
-@onready var hud = $"../CanvasLayer/HUD"
+@onready var hud = $"../HUD"
 
 func _on_body_entered(body):
 	# Verifica se quem encostou no buraco foi o cavaleiro
@@ -13,16 +13,16 @@ func _on_body_entered(body):
 		# Tira 1 coração do sistema global
 		Global.vidas -= 1
 		
+		# Força o HUD a atualizar os corações imediatamente
 		if hud:
 			hud.atualizar_coracoes(Global.vidas)
-		.
+			
 		if Global.vidas > 0:
 			# Verifica se conectou o ponto no Inspetor
 			if ponto_de_retorno != null:
-				# Muda a posição do cavaleiro para a posição do ponto
-				body.global_position = ponto_de_retorno.global_position
+				body.velocity = Vector2.ZERO
 				
-				body.velocity = Vector2.ZERO 
+				body.call_deferred("set_global_position", ponto_de_retorno.global_position)
 			else:
 				print("Aviso: Você esqueceu de ligar o Ponto de Retorno no Inspetor!")
 				
