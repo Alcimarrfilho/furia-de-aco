@@ -107,34 +107,33 @@ position = Vector2(15.58824, 3.823532)
 shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="Camera2D" parent="cavaleiro" index="2" unique_id=939073973]
+visible = false
 position = Vector2(739.41174, -190.58823)
 zoom = Vector2(0.4, 0.4)
 limit_left = 0
 limit_top = -900
-limit_right = 7400
-limit_bottom = 800
+limit_right = 7167
+limit_bottom = 739
 
 [node name="pontoretorno1" type="Marker2D" parent="." unique_id=1287756590]
-visible = false
-position = Vector2(1301, -745)
+position = Vector2(800, -750)
 
 [node name="pontoretorno2" type="Marker2D" parent="." unique_id=905430634]
-visible = false
 position = Vector2(3633, -429)
 
 [node name="sensorburaco1" type="Area2D" parent="." unique_id=1398197334]
-visible = false
 position = Vector2(1841, 419)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco1" unique_id=689119910]
+visible = false
 position = Vector2(354.5, 204)
 shape = SubResource("RectangleShape2D_v0y51")
 
 [node name="sensorburaco2" type="Area2D" parent="." unique_id=825158572]
-visible = false
 position = Vector2(5107, 425)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sensorburaco2" unique_id=1353012468]
+visible = false
 position = Vector2(29.75, 111)
 shape = SubResource("RectangleShape2D_m4ym0")
 
@@ -151,10 +150,10 @@ texture = ExtResource("4_1g4g3")
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -164.0
-offset_top = -1305.0
-offset_right = 365.0
-offset_bottom = -1238.0
+offset_left = -145.0
+offset_top = -1309.0
+offset_right = 384.0
+offset_bottom = -1242.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Moedas:"

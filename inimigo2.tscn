@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://o5pfjac81wmb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvuni"]
+
+[node name="Inimigo" type="CharacterBody2D" unique_id=260365167]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1928394371]
+sprite_frames = SubResource("SpriteFrames_gvuni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=259960688]
+
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=1716368444]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque" unique_id=366793033]
