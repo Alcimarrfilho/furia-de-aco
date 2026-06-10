@@ -11,27 +11,28 @@
 [ext_resource type="Script" uid="uid://bmlph7hqj3hkp" path="res://meu_inimigo.gd" id="8_j7ljf"]
 [ext_resource type="Texture2D" uid="uid://dgok2fwnm62il" path="res://YellowNinja/yellowNinja - Death.png" id="9_j7ljf"]
 [ext_resource type="Script" uid="uid://crkkb00l5l386" path="res://mini_chefe_fase2.gd" id="11_gvw8t"]
+[ext_resource type="Texture2D" uid="uid://o8yq566u1cjr" path="res://9955662-pixel-art-wooden-sign-with-indicative-arro.png" id="12_7ui32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv3c2"]
-size = Vector2(748.5, 45)
+size = Vector2(829, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qle6f"]
-size = Vector2(846, 48)
+size = Vector2(989, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ivu1"]
-size = Vector2(303, 35)
+size = Vector2(342.5, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnsp1"]
-size = Vector2(305, 33.5)
+size = Vector2(343, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltj3d"]
-size = Vector2(344, 33)
+size = Vector2(393, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgfrg"]
-size = Vector2(243, 25)
+size = Vector2(281, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7ljf"]
-size = Vector2(297, 24.5)
+size = Vector2(285, 23)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qgfrg"]
 radius = 31.0
@@ -124,28 +125,35 @@ _data = {
 &"morte": SubResource("Animation_gvw8t")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ui32"]
+size = Vector2(50, 65)
+
 [node name="Node2D" type="Node2D" unique_id=1919700582]
 script = ExtResource("1_qgfrg")
 metadata/_edit_vertical_guides_ = [-149.0, -138.0, -138.0, -149.0]
 
 [node name="FundoJornada2" type="Sprite2D" parent="." unique_id=2129495556]
 position = Vector2(337, 151)
-scale = Vector2(1.316, 1.315)
+scale = Vector2(1.506, 1.505)
 texture = ExtResource("1_smwdg")
 
 [node name="cavaleiro" parent="." unique_id=1167765930 instance=ExtResource("2_73kgi")]
-position = Vector2(-180, 108)
+position = Vector2(-232, 131)
+
+[node name="Camera2D" parent="cavaleiro" index="2" unique_id=813927353]
+limit_left = -1000
+limit_right = 1700
 
 [node name="Chao" type="StaticBody2D" parent="." unique_id=1673247992]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao" unique_id=1352466876]
-position = Vector2(-517.75, 577)
+position = Vector2(-653.5, 634)
 shape = SubResource("RectangleShape2D_dv3c2")
 
 [node name="Chao2" type="StaticBody2D" parent="." unique_id=1109205173]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao2" unique_id=992501710]
-position = Vector2(516, 582)
+position = Vector2(548, 639)
 shape = SubResource("RectangleShape2D_qle6f")
 
 [node name="Moeda" parent="." unique_id=819013383 instance=ExtResource("7_ltj3d")]
@@ -158,20 +166,20 @@ position = Vector2(-57, 352)
 position = Vector2(-257, 423)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaAerea1" unique_id=1917616562]
-position = Vector2(-23.5, 20.5)
+position = Vector2(-113.75, 74)
 shape = SubResource("RectangleShape2D_2ivu1")
 
 [node name="PlataformaAerea2" type="StaticBody2D" parent="." unique_id=104504087]
 position = Vector2(811, 415)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaAerea2" unique_id=1346416548]
-position = Vector2(56, 28)
+position = Vector2(134.5, 82.5)
 shape = SubResource("RectangleShape2D_jnsp1")
 
 [node name="Chao3" type="StaticBody2D" parent="." unique_id=1785424994]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao3" unique_id=994814554]
-position = Vector2(1398, 575.5)
+position = Vector2(1545.5, 626)
 shape = SubResource("RectangleShape2D_ltj3d")
 
 [node name="Buraco1" type="Area2D" parent="." unique_id=1586450140]
@@ -179,7 +187,7 @@ position = Vector2(-36, 554)
 script = ExtResource("5_qle6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buraco1" unique_id=1097421161]
-position = Vector2(14.5, 22.5)
+position = Vector2(-55.5, 84.5)
 shape = SubResource("RectangleShape2D_qgfrg")
 
 [node name="Buraco2" type="Area2D" parent="." unique_id=2114140442]
@@ -187,7 +195,7 @@ position = Vector2(1052, 554)
 script = ExtResource("6_jnsp1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buraco2" unique_id=1155097467]
-position = Vector2(30.5, 36.25)
+position = Vector2(140.5, 81.5)
 shape = SubResource("RectangleShape2D_j7ljf")
 
 [node name="HUDFase2" type="CanvasLayer" parent="." unique_id=1417708648]
@@ -223,7 +231,7 @@ offset_bottom = 78.0
 text = "BEM-VINDO À FASE 2!"
 
 [node name="MeuInimigo" type="CharacterBody2D" parent="." unique_id=1512613484]
-position = Vector2(-321, 339)
+position = Vector2(-321, 403)
 script = ExtResource("8_j7ljf")
 metadata/_edit_group_ = true
 
@@ -251,7 +259,7 @@ shape = SubResource("RectangleShape2D_smwdg")
 libraries/ = SubResource("AnimationLibrary_7ui32")
 
 [node name="MiniChefeFase2" type="CharacterBody2D" parent="." unique_id=765925239]
-position = Vector2(1344, 469)
+position = Vector2(559, 502)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("11_gvw8t")
 metadata/_edit_group_ = true
@@ -280,7 +288,7 @@ shape = SubResource("RectangleShape2D_smwdg")
 libraries/ = SubResource("AnimationLibrary_7ui32")
 
 [node name="MeuInimigo2" type="CharacterBody2D" parent="." unique_id=1270396681]
-position = Vector2(770, 357)
+position = Vector2(804, 404)
 script = ExtResource("8_j7ljf")
 metadata/_edit_group_ = true
 
@@ -307,10 +315,23 @@ shape = SubResource("RectangleShape2D_smwdg")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeuInimigo2" unique_id=1093724542]
 libraries/ = SubResource("AnimationLibrary_7ui32")
 
+[node name="Portalparafase3" type="Area2D" parent="." unique_id=277647170]
+position = Vector2(1536, 545)
+
+[node name="Sprite2D" type="Sprite2D" parent="Portalparafase3" unique_id=388028635]
+position = Vector2(-3, -3)
+scale = Vector2(0.062279675, 0.07653061)
+texture = ExtResource("12_7ui32")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portalparafase3" unique_id=1410275634]
+position = Vector2(-2, -3.5)
+shape = SubResource("RectangleShape2D_7ui32")
+
 [connection signal="body_entered" from="Buraco1" to="Buraco1" method="_on_body_entered"]
 [connection signal="body_entered" from="Buraco2" to="Buraco2" method="_on_body_entered"]
 [connection signal="body_entered" from="MeuInimigo/Hurtbox" to="MeuInimigo" method="_on_area_dano_body_entered"]
 [connection signal="body_entered" from="MiniChefeFase2/Hurtbox" to="MiniChefeFase2" method="_on_area_dano_body_entered"]
 [connection signal="body_entered" from="MeuInimigo2/Hurtbox" to="MeuInimigo2" method="_on_area_dano_body_entered"]
 
+[editable path="cavaleiro"]
 [editable path="Moeda"]
