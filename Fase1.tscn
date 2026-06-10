@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://f5dhfpicpvpf" path="res://tela_aviso.tscn" id="12_tifhp"]
 [ext_resource type="Script" uid="uid://cjai7q6287blf" path="res://tela_derrota.gd" id="13_f5tht"]
 [ext_resource type="Script" uid="uid://ckx6rrkei5cl3" path="res://color_rect.gd" id="13_tifhp"]
+[ext_resource type="AudioStream" uid="uid://bf55x8it70qu5" path="res://Pixel RPG Music Pack/Pixel Music Pack/mp3/Pixel 2.mp3" id="14_f5tht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jppy"]
 size = Vector2(1815, 50)
@@ -220,6 +221,11 @@ text = "Você foi derrotado! Os reféns ainda precisam de você"
 [node name="Button" type="Button" parent="CanvasLayer/TelaDerrota/VBoxContainer" unique_id=150473036]
 layout_mode = 2
 text = "Tentar Novamente"
+
+[node name="MusicaFundoFase1" type="AudioStreamPlayer" parent="." unique_id=389663837]
+stream = ExtResource("14_f5tht")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="body_entered" from="BuracoMorte" to="BuracoMorte" method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/TelaVitoria/VBoxContainer/BotaoProximaFase" to="Portal" method="_on_botao_proxima_fase_pressed"]

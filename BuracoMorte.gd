@@ -15,7 +15,7 @@ func _on_body_entered(body):
 		
 		if hud:
 			hud.atualizar_coracoes(Global.vidas)
-		.
+		
 		if Global.vidas > 0:
 			# Verifica se conectou o ponto no Inspetor
 			if ponto_de_retorno != null:

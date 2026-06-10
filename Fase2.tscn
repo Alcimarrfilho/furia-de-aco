@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cb3a64cy5r4ie" path="res://tela_vitoria.tscn" id="11_7ui32"]
 [ext_resource type="PackedScene" uid="uid://bamupccaf8tj4" path="res://portal.tscn" id="12_3xhfl"]
 [ext_resource type="PackedScene" uid="uid://f5dhfpicpvpf" path="res://tela_aviso.tscn" id="12_xotkg"]
+[ext_resource type="AudioStream" uid="uid://ci4br4mn1q8yy" path="res://Pixel RPG Music Pack/Pixel Music Pack/mp3/Pixel 4.mp3" id="14_xotkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv3c2"]
 size = Vector2(748.5, 45)
@@ -321,6 +322,11 @@ position = Vector2(1501, 496)
 [node name="CollisionShape2D" parent="Portal" index="0" unique_id=1456158240]
 position = Vector2(26, -76)
 shape = SubResource("CapsuleShape2D_xotkg")
+
+[node name="MusicaFundoFase2" type="AudioStreamPlayer" parent="." unique_id=157987408]
+stream = ExtResource("14_xotkg")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="body_entered" from="Buraco1" to="Buraco1" method="_on_body_entered"]
 [connection signal="body_entered" from="Buraco2" to="Buraco2" method="_on_body_entered"]

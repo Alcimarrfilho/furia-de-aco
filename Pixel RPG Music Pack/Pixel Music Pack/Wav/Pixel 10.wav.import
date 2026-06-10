@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwcc3tlde8css"
+path="res://.godot/imported/Pixel 10.wav-ef9280767c103202c880029187fc609f.sample"
+
+[deps]
+
+source_file="res://Pixel RPG Music Pack/Pixel Music Pack/Wav/Pixel 10.wav"
+dest_files=["res://.godot/imported/Pixel 10.wav-ef9280767c103202c880029187fc609f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
