@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bamupccaf8tj4"]
+
+[ext_resource type="Script" uid="uid://bbxptppfjnryu" path="res://portal.gd" id="1_0r486"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5tht"]
+radius = 35.0
+height = 350.0
+
+[node name="Portal" type="Area2D" unique_id=1235330540]
+script = ExtResource("1_0r486")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1456158240]
+position = Vector2(2224, 224)
+shape = SubResource("CapsuleShape2D_f5tht")
+debug_color = Color(0.35691342, 0.20459999, 0.62, 0.5921569)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

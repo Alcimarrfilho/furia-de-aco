@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://df0ccfoayy5ip" path="res://menu_principal.gd" id="1_gmcsc"]
 [ext_resource type="Texture2D" uid="uid://ccjo3d3uhdquv" path="res://Gemini_Generated_Image_fbev2fbev2fbev2f (1).png" id="2_ul6ys"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul6ys"]
+bg_color = Color(0.15, 0.15, 0.15, 0.78431374)
+corner_detail = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmcsc"]
 bg_color = Color(0.01, 0.01, 0.01, 0.7058824)
 
@@ -27,11 +31,18 @@ texture = ExtResource("2_ul6ys")
 expand_mode = 1
 
 [node name="MenuBotoes" type="VBoxContainer" parent="." unique_id=1501018319]
-layout_mode = 0
-offset_left = 399.0
-offset_top = 219.0
-offset_right = 755.0
-offset_bottom = 357.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -69.0
+offset_right = 178.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BotaoIniciar" type="Button" parent="MenuBotoes" unique_id=1930835124]
 layout_mode = 2
@@ -53,21 +64,45 @@ layout_mode = 2
 text = "Abrir Documento
 "
 
-[node name="PainelControles" type="Panel" parent="." unique_id=2046979133]
+[node name="PainelControles" type="Panel" parent="." unique_id=863913872]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ul6ys")
 
-[node name="Label" type="Label" parent="PainelControles" unique_id=709333783]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PainelControles" unique_id=1540876506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PainelControles/VBoxContainer" unique_id=197833162]
+layout_mode = 2
+alignment = 2
+
+[node name="FecharControles" type="Button" parent="PainelControles/VBoxContainer/HBoxContainer" unique_id=1656200951]
+layout_mode = 2
+text = "X"
+
+[node name="Label" type="Label" parent="PainelControles/VBoxContainer" unique_id=709333783]
+layout_mode = 2
 text = "⚔️ COMANDOS DE JOGO ⚔️
 
 🏃 MOVIMENTAÇÃO
-• [ A ] ou [ ◀ ]  ➔  Mover para Esquerda
-• [ D ] ou [ ▶ ]  ➔  Mover para Direita
+• [ ◀ ]  ➔  Mover para Esquerda
+•  [ ▶ ]  ➔  Mover para Direita
 • [ Espaço ]     ➔  Saltar / Pular
 • [ F ]     ➔  Atacar
 
@@ -77,6 +112,7 @@ text = "⚔️ COMANDOS DE JOGO ⚔️
 "
 
 [node name="PainelAudio" type="Panel" parent="." unique_id=2082882528]
+visible = false
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 1
 anchors_preset = 8
@@ -100,9 +136,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FecharAudio" type="Button" parent="PainelAudio/VBoxContainer" unique_id=449418488]
+[node name="HBoxContainer" type="HBoxContainer" parent="PainelAudio/VBoxContainer" unique_id=347855793]
 layout_mode = 2
-text = "Voltar"
+alignment = 2
+
+[node name="FecharAudio" type="Button" parent="PainelAudio/VBoxContainer/HBoxContainer" unique_id=449418488]
+layout_mode = 2
+text = "X"
+icon_alignment = 1
 
 [node name="SliderVolume" type="HSlider" parent="PainelAudio/VBoxContainer" unique_id=1845143984]
 layout_mode = 2
@@ -112,5 +153,7 @@ max_value = 0.0
 [connection signal="pressed" from="MenuBotoes/BotaoIniciar" to="." method="_on_botao_iniciar_pressed"]
 [connection signal="pressed" from="MenuBotoes/BotaoControles" to="." method="_on_botao_controles_pressed"]
 [connection signal="pressed" from="MenuBotoes/BotaoVolume" to="." method="_on_botao_volume_pressed"]
-[connection signal="pressed" from="MenuBotoes/Abrir Documento GDD" to="." method="_on_abrir_documento_gdd_pressed"]
-[connection signal="pressed" from="PainelAudio/VBoxContainer/FecharAudio" to="." method="_on_fechar_audio_pressed"]
+[connection signal="pressed" from="MenuBotoes/Abrir Documento GDD" to="." method="_on_abrir_documento_pressed"]
+[connection signal="pressed" from="PainelControles/VBoxContainer/HBoxContainer/FecharControles" to="." method="_on_fechar_controles_pressed"]
+[connection signal="pressed" from="PainelAudio/VBoxContainer/HBoxContainer/FecharAudio" to="." method="_on_fechar_audio_pressed"]
+[connection signal="value_changed" from="PainelAudio/VBoxContainer/SliderVolume" to="." method="_on_slider_volume_value_changed"]

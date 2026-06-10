@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cb3a64cy5r4ie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h1au"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="TelaVitoria" type="Panel" unique_id=735300709]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -87.5
+offset_right = 150.0
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6h1au")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1678072538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1754320004]
+layout_mode = 2
+text = "PARABÉNS! FASE CONCLUÍDA"
+
+[node name="BotaoProximaFase" type="Button" parent="VBoxContainer" unique_id=1021048106]
+layout_mode = 2
+text = "Proxima Fase"
+
+[node name="BotaoMenuPrincipal" type="Button" parent="VBoxContainer" unique_id=691728290]
+layout_mode = 2
+text = "Menu Principal"
+
+[node name="BotaoReiniciar" type="Button" parent="VBoxContainer" unique_id=1813551360]
+layout_mode = 2
+text = "Reiniciar Fase"
