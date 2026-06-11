@@ -14,7 +14,7 @@ Este é um jogo de plataforma 2D focado em combate e progressão, desenvolvido e
 * **Setas / WASD**: Movimentação do Cavaleiro
 * **Espaço**: Pulo
 * **Tecla F**: Atacar / Combate
-
+* **Tecla F5: Pausa
 ---
 
 ### 🚀 Download da Build (Executável do Jogo)
