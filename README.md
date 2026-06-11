@@ -18,8 +18,6 @@ O projeto consiste em um jogo de plataforma com três fases, onde o herói evolu
    - `Espaço`: Pulo
    - `F`: ataca
 
-## 📦 Link para a Build (Executável)
-> https://drive.google.com/file/d/1tkxGvRQRe6CPD8mLOGPMg6avZYdd3Dj6/view?usp=sharing
 
 ## 🛠️ Tecnologias Utilizadas
 * [Godot Engine 4](https://godotengine.org/)
