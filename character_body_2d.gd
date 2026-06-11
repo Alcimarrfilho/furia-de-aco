@@ -18,6 +18,7 @@ var direcao_olhar = 1.0
 var ataque_distancia_x = 40.0
 
 @onready var sprite = $AnimatedSprite2D
+@onready var som_espada = $SomEspada
 
 func _physics_process(delta: float) -> void:
 	# Aplica Gravidade
@@ -58,6 +59,8 @@ func _physics_process(delta: float) -> void:
 		attacking = true
 		attack_cooldown = 0.6
 		sprite.play("attack")
+		
+		som_espada.play()
 		
 		# --- NOVIDADE: Dá o dano! ---
 		# Pega todas as áreas (hurtboxes dos inimigos) dentro da caixa roxa agora!

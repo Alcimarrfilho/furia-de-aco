@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://docm1571smigc" path="res://Knight 2D Pixel Art/Sprites/with_outline/IDLE.png" id="3_v1dck"]
 [ext_resource type="Texture2D" uid="uid://4tjh3wlju2ux" path="res://Knight 2D Pixel Art/Sprites/with_outline/JUMP.png" id="4_xoxc7"]
 [ext_resource type="Texture2D" uid="uid://dqiq0fw83m27" path="res://Knight 2D Pixel Art/Sprites/with_outline/RUN.png" id="5_kl2ku"]
+[ext_resource type="AudioStream" uid="uid://bxr8a6qwvo30v" path="res://alice_soundz-best-sword-sounds-slice-slash-crash-swoosh-etc-224090-[AudioTrimmer.com].mp3" id="6_qc5k0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coe7y"]
 size = Vector2(39.99999, 56)
@@ -228,3 +229,6 @@ position = Vector2(74.666664, 4)
 visible = false
 position = Vector2(-254.66669, 162)
 shape = SubResource("RectangleShape2D_6h1au")
+
+[node name="SomEspada" type="AudioStreamPlayer2D" parent="." unique_id=2046431179]
+stream = ExtResource("6_qc5k0")
