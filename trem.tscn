@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://djinqdq3jxa15"]
+
+[ext_resource type="Script" uid="uid://7xudnvjl76f0" path="res://trem.gd" id="1_fd3x8"]
+[ext_resource type="Texture2D" uid="uid://yhly6lc0vjlm" path="res://YellowNinja/yellowNinja - attack.png" id="1_jcexe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmiti"]
+size = Vector2(41, 8)
+
+[node name="Trem" type="Area2D" unique_id=1527037665]
+script = ExtResource("1_fd3x8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1834910957]
+texture = ExtResource("1_jcexe")
+region_enabled = true
+region_rect = Rect2(978.092, 69.356445, 40.505005, 8.309471)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2120925326]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_cmiti")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

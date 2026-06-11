@@ -199,6 +199,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdsla"]
 size = Vector2(47.750835, 75.08648)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv4mm"]
+size = Vector2(24.117634, 76.47059)
+
 [node name="cavaleiro" type="CharacterBody2D" unique_id=867712019 groups=["jogador"]]
 scale = Vector2(1.7, 1.7)
 script = ExtResource("1_wv4mm")
@@ -211,11 +214,20 @@ animation = &"andar"
 offset = Vector2(6, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105054635]
+visible = false
 position = Vector2(10.000004, -62.352943)
 scale = Vector2(1.7000006, 1.7000006)
 shape = SubResource("RectangleShape2D_wdsla")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=939073973]
 position = Vector2(-28.235294, 33.52941)
+
+[node name="AreaEspada" type="Area2D" parent="." unique_id=728035709]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaEspada" unique_id=450635009]
+visible = false
+position = Vector2(47.94118, -40.588226)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_wv4mm")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

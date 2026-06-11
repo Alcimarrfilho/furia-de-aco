@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Furia de Aco"
-run/main_scene="uid://cncom2het2bo"
+run/main_scene="uid://bfmtnj338lm8f"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

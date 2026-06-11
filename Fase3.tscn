@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cb3a64cy5r4ie" path="res://tela_vitoria.tscn" id="8_a0hv0"]
 [ext_resource type="PackedScene" uid="uid://f5dhfpicpvpf" path="res://tela_aviso.tscn" id="9_c0n2q"]
 [ext_resource type="PackedScene" uid="uid://bamupccaf8tj4" path="res://portal.tscn" id="9_lufhu"]
+[ext_resource type="PackedScene" uid="uid://o5pfjac81wmb" path="res://inimigo2.tscn" id="11_c0n2q"]
+[ext_resource type="Texture2D" uid="uid://ccjvbtkk7fwi2" path="res://YellowNinja/yellowNinja - idle.png" id="12_lccmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifecm"]
 size = Vector2(138.5, 1043)
@@ -102,12 +104,10 @@ position = Vector2(65.29411, -59.411762)
 animation = &"defender"
 
 [node name="CollisionShape2D" parent="cavaleiro" index="1" unique_id=2105054635]
-visible = false
 position = Vector2(15.58824, 3.823532)
 shape = SubResource("RectangleShape2D_1g4g3")
 
 [node name="Camera2D" parent="cavaleiro" index="2" unique_id=939073973]
-visible = false
 position = Vector2(739.41174, -190.58823)
 zoom = Vector2(0.4, 0.4)
 limit_left = 0
@@ -145,39 +145,6 @@ script = ExtResource("4_al0bo")
 visible = false
 position = Vector2(383, -210)
 texture = ExtResource("4_1g4g3")
-
-[node name="TextoMoedas" type="Label" parent="HUD" unique_id=1419344479]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -1309.0
-offset_right = 384.0
-offset_bottom = -1242.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 48
-text = "Moedas:"
-
-[node name="coracao1" type="Sprite2D" parent="HUD" unique_id=1147016245]
-position = Vector2(-119.629036, -1073.5)
-scale = Vector2(5.1629024, 4.999998)
-texture = ExtResource("5_m4ym0")
-region_enabled = true
-region_rect = Rect2(0, 0, 20.5, 21)
-
-[node name="coracao2" type="Sprite2D" parent="HUD" unique_id=1085663311]
-position = Vector2(-2.8749943, -1071.5)
-scale = Vector2(4.7875, 4.714287)
-texture = ExtResource("5_m4ym0")
-region_enabled = true
-region_rect = Rect2(0, 0, 20.5, 21)
-
-[node name="coracao3" type="Sprite2D" parent="HUD" unique_id=538319935]
-position = Vector2(110.99999, -1069.4688)
-scale = Vector2(5.4249997, 4.711309)
-texture = ExtResource("5_m4ym0")
-region_enabled = true
-region_rect = Rect2(0, 0, 20.5, 21)
 
 [node name="Moedas" type="Node2D" parent="." unique_id=787678721]
 position = Vector2(413, -56)
@@ -266,7 +233,83 @@ proxima_fase = "res://menu_principal.tscn"
 moedas_necessarias = 9
 
 [node name="CollisionShape2D" parent="Portal" index="0" unique_id=1456158240]
+visible = false
 position = Vector2(6361, -205)
+
+[node name="Inimigo" parent="." unique_id=260365167 instance=ExtResource("11_c0n2q")]
+position = Vector2(5834.0005, 118)
+scale = Vector2(5.5, 5.5)
+
+[node name="Inimigo2" parent="." unique_id=1441934436 instance=ExtResource("11_c0n2q")]
+position = Vector2(4532.0005, 141)
+scale = Vector2(5.5, 5.5)
+
+[node name="Inimigo3" parent="." unique_id=1361133425 instance=ExtResource("11_c0n2q")]
+position = Vector2(4627.0005, -219.99997)
+scale = Vector2(5.5, 5.5)
+
+[node name="Inimigo4" parent="." unique_id=599420507 instance=ExtResource("11_c0n2q")]
+position = Vector2(6153, -239)
+scale = Vector2(5.5, 5.5)
+
+[node name="Prisioneiro1" type="Sprite2D" parent="." unique_id=1087798883]
+modulate = Color(0.04, 0.04, 0.04, 1)
+position = Vector2(6935, -168.504)
+scale = Vector2(8.749999, 3.5078752)
+texture = ExtResource("12_lccmf")
+region_enabled = true
+region_rect = Rect2(418.79492, 0, 48.717957, 128)
+
+[node name="Prisioneiro2" type="Sprite2D" parent="." unique_id=1905444444]
+modulate = Color(0.04, 0.04, 0.04, 1)
+position = Vector2(6691, -177.99998)
+scale = Vector2(7.375007, 4.1875)
+texture = ExtResource("12_lccmf")
+region_enabled = true
+region_rect = Rect2(418.79492, 0, 48.717957, 128)
+
+[node name="Prisioneiro3" type="Sprite2D" parent="." unique_id=772802064]
+modulate = Color(0.04, 0.04, 0.04, 1)
+position = Vector2(6472.5, -177.99998)
+scale = Vector2(7.312498, 4.1875)
+texture = ExtResource("12_lccmf")
+region_enabled = true
+region_rect = Rect2(418.79492, 0, 48.717957, 128)
+
+[node name="HUD2" type="CanvasLayer" parent="." unique_id=1965999043]
+
+[node name="coracao1" type="Sprite2D" parent="HUD2" unique_id=1147016245]
+position = Vector2(50, -829)
+scale = Vector2(5.1629024, 4.999998)
+texture = ExtResource("5_m4ym0")
+region_enabled = true
+region_rect = Rect2(0, 0, 20.5, 21)
+
+[node name="coracao2" type="Sprite2D" parent="HUD2" unique_id=1085663311]
+position = Vector2(163.99998, -832.99994)
+scale = Vector2(4.7875004, 4.714287)
+texture = ExtResource("5_m4ym0")
+region_enabled = true
+region_rect = Rect2(0, 0, 20.5, 21)
+
+[node name="coracao3" type="Sprite2D" parent="HUD2" unique_id=538319935]
+position = Vector2(273, -831)
+scale = Vector2(5.4249997, 4.711309)
+texture = ExtResource("5_m4ym0")
+region_enabled = true
+region_rect = Rect2(0, 0, 20.5, 21)
+
+[node name="TextoMoedas" type="Label" parent="HUD2" unique_id=1419344479]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -1096.0
+offset_right = 535.0
+offset_bottom = -1029.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Moedas:"
 
 [connection signal="body_entered" from="sensorburaco1" to="." method="_on_sensorburaco_1_body_entered"]
 [connection signal="body_entered" from="sensorburaco2" to="." method="_on_sensorburaco_2_body_entered"]

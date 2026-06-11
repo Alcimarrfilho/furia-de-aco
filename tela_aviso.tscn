@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://f5dhfpicpvpf"]
 
+[ext_resource type="Script" uid="uid://k7dvbydcxe48" path="res://tela_aviso.gd" id="1_agopk"]
+
 [node name="TelaAviso" type="Panel" unique_id=543896580]
 process_mode = 3
 anchors_preset = 8
@@ -11,6 +13,7 @@ offset_right = 530.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_agopk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1877336709]
 layout_mode = 1
@@ -27,3 +30,5 @@ text = "Você não pegou moedas o suficiente para ir para a próxima fase!"
 [node name="BotaoVoltar" type="Button" parent="VBoxContainer" unique_id=807322500]
 layout_mode = 2
 text = "Voltar "
+
+[connection signal="pressed" from="VBoxContainer/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

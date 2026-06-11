@@ -11,6 +11,7 @@ const OFFSET_ART_DIREITA = 50.0
 const OFFSET_ART_ESQUERDA = -45.0 
 
 @onready var anim = $AnimatedSprite2D
+@onready var area_espada = $AreaEspada # <-- REFERÊNCIA DA HITBOX ADICIONADA AQUI
 
 var estado = "normal" 
 
@@ -19,11 +20,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
-	# Lógica do botão F (Ação de Atacar/Defender)
+	# Lógica do botão de Ação (Atacar/Defender)
 	if Input.is_action_just_pressed("atacar") and is_on_floor():
 		estado = "atacando"
 		anim.play("atacar")
 		velocity.x = 0 
+		
+		# === SISTEMA DE CAUSAR DANO ===
+		# Verifica todo mundo que está encostando na área da espada
+		if area_espada != null: # Prevenção de erro caso a AreaEspada não exista
+			for alvo in area_espada.get_overlapping_bodies():
+				# Se o alvo tiver a função de tomar dano, e não for o próprio cavaleiro
+				if alvo.has_method("receber_dano") and alvo != self:
+					alvo.receber_dano(1) # Tira 1 de HP do inimigo!
 		
 	elif Input.is_action_pressed("atacar") and estado != "atacando" and is_on_floor():
 		estado = "defendendo"
@@ -44,13 +53,20 @@ func _physics_process(delta):
 		if direcao:
 			velocity.x = direcao * velocidade_atual
 			
-			#  LÓGICA DE PUXAR O DESENHO
+			#  LÓGICA DE PUXAR O DESENHO E A ESPADA
 			if direcao == -1: # Virou para a Esquerda
 				anim.flip_h = true
 				anim.position.x = OFFSET_ART_ESQUERDA
+				if area_espada != null:
+					# Joga a área de colisão da espada para a esquerda
+					area_espada.position.x = -abs(area_espada.position.x) 
+					
 			elif direcao == 1: # Virou para a Direita
 				anim.flip_h = false
 				anim.position.x = OFFSET_ART_DIREITA
+				if area_espada != null:
+					# Joga a área de colisão da espada para a direita
+					area_espada.position.x = abs(area_espada.position.x)
 			
 			if is_on_floor() and estado == "normal":
 				anim.play("andar")
@@ -81,12 +97,9 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 #  SISTEMA DE DANO E DEFESA REAL
-
 func receber_dano(quantidade, posicao_inimigo_x):
 	# 1. TESTE DO ESCUDO: Se está com o escudo levantado, verifica a direção
 	if estado == "defendendo":
-		# anim.flip_h == false significa olhando para a DIREITA
-		# anim.flip_h == true significa olhando para a ESQUERDA
 		var inimigo_na_direita = posicao_inimigo_x > global_position.x
 		
 		if not anim.flip_h and inimigo_na_direita:

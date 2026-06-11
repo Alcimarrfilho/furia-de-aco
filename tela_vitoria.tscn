@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cb3a64cy5r4ie"]
 
+[ext_resource type="Script" uid="uid://ghh5igkorjok" path="res://tela_vitoria.gd" id="1_vetyl"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h1au"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
 
@@ -18,6 +20,7 @@ offset_bottom = 87.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6h1au")
+script = ExtResource("1_vetyl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1678072538]
 layout_mode = 1
@@ -44,3 +47,7 @@ text = "Menu Principal"
 [node name="BotaoReiniciar" type="Button" parent="VBoxContainer" unique_id=1813551360]
 layout_mode = 2
 text = "Reiniciar Fase"
+
+[connection signal="pressed" from="VBoxContainer/BotaoProximaFase" to="." method="_on_botao_proxima_fase_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
