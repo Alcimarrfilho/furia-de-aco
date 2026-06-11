@@ -111,6 +111,7 @@ func tomar_dano():
 			get_tree().call_deferred("reload_current_scene")
 			# Reseta a vida para o próximo play (opcional, dependendo de como você faz o Game Over)
 			Global.vidas = 3 
+			Global.moedas = 0
 			return # Para a função aqui para ele não tentar ficar vermelho depois de morto
 		
 		# 3. SE AINDA TEM VIDA: Liga o escudo e pisca vermelho
