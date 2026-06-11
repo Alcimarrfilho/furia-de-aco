@@ -1,31 +1,31 @@
-# ⚔️ Projeto de Jogo - P2 iCEV
+# ⚔️ Fúria de Aço — Jogo de Plataforma
 
-Este é um projeto de jogo de plataforma desenvolvido em **Godot Engine 4** para a avaliação da disciplina de Desenvolvimento de Jogos (P2).
+Este é um jogo de plataforma 2D focado em combate e progressão, desenvolvido em **Godot Engine 4** para a avaliação da disciplina de Desenvolvimento de Jogos (P2) no **ICEV**.
 
-## 🚀 O Jogo
-O projeto consiste em um jogo de plataforma com três fases, onde o herói evolui visualmente ao chegar na fase final (Fase 3).
+---
 
-## 👥 Integrantes do Grupo
-* Alcimar Rosal Benvindo Filho
-* Guilherme Gomes Benigno
+### 👥 Integrantes do Grupo
+* **Alcimar Rosal Benvindo Filho**
+* **Guilherme Gomes Benigno**
 
+---
 
-## 🎮 Como Jogar
-1. Baixe o repositório ou a build do jogo.
-2. Execute o arquivo executável (se estiver usando a build) ou abra o projeto no Godot 4.
-3. **Controles:**
-   - `Setas / WASD`: Movimentação
-   - `Espaço`: Pulo
-   - `F`: ataca
+### 🕹️ Como Jogar (Controles)
+* **Setas / WASD**: Movimentação do Cavaleiro
+* **Espaço**: Pulo
+* **Tecla F**: Atacar / Combate
 
+---
 
-## 🛠️ Tecnologias Utilizadas
-* [Godot Engine 4](https://godotengine.org/)
-* Linguagem GDScript
-* Assets: CraftPix (Knight_1 Pack)
+### 🚀 Download da Build (Executável do Jogo)
+> 📢 **[CLIQUE AQUI PARA BAIXAR A VERSÃO FINAL (GITHUB RELEASES)](https://github.com/Alcimarrfilho/furia-de-aco/releases/tag/v1.0)**
+*(Baixe o arquivo `Furia_de_Aco_Nova_Build.zip`, extraia os arquivos no seu computador e execute o arquivo de aplicação para jogar!)*
 
-## 📁 Estrutura do Projeto
-O projeto foi organizado de forma a separar as cenas e os códigos para evitar conflitos:
-* `cavaleiro.tscn`: Personagem usado nas fases 1 e 2.
-* `cavaleiro_fase3.tscn`: Personagem com armadura evoluída para o clímax do jogo.
-* `fase1.tscn`, `fase2.tscn`, `fase3.tscn`: Mapas do jogo.
+---
+
+### 🛠️ Estrutura e Tecnologias Utilizadas
+* **Engine**: Godot Engine 4 (GDScript)
+* **Assets Visuais**: CraftPix (Knight_1 Pack, Medieval Warrior, YellowNinja)
+* **Áudio**: Pixel RPG Music Pack
+
+O projeto conta com **3 fases completas**, apresentando uma evolução visual do herói (armadura aprimorada) ao alcançar o clímax na Fase 3.
